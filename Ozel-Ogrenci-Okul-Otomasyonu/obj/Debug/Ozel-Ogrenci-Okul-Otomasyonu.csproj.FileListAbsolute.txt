@@ -43,3 +43,15 @@ C:\Users\user\Desktop\Ozel-Ogrenci-Okul-Otomasyonu\Ozel-Ogrenci-Okul-Otomasyonu\
 C:\Users\user\Desktop\Ozel-Ogrenci-Okul-Otomasyonu\Ozel-Ogrenci-Okul-Otomasyonu\obj\Debug\Ozel-Ogrenci-Okul-Otomasyonu.exe
 C:\Users\user\Desktop\Ozel-Ogrenci-Okul-Otomasyonu\Ozel-Ogrenci-Okul-Otomasyonu\obj\Debug\Ozel-Ogrenci-Okul-Otomasyonu.pdb
 C:\Users\user\Desktop\Ozel-Ogrenci-Okul-Otomasyonu\Ozel-Ogrenci-Okul-Otomasyonu\obj\Debug\Ozel-Ogrenci-Okul-Otomasyonu.exe.config
+C:\Users\user\Desktop\Ozel-Ogrenci-Okul-Otomasyonu\Ozel-Ogrenci-Okul-Otomasyonu\obj\Debug\Ozel_Ogrenci_Okul_Otomasyonu.UcOgretmen.resources
+C:\Users\user\Desktop\Ozel-Ogrenci-Okul-Otomasyonu\Ozel-Ogrenci-Okul-Otomasyonu\obj\Debug\Ozel_Ogrenci_Okul_Otomasyonu.UcSeans.resources
+C:\Users\user\Desktop\Ozel-Ogrenci-Okul-Otomasyonu\Ozel-Ogrenci-Okul-Otomasyonu\obj\Debug\Ozel_Ogrenci_Okul_Otomasyonu.FrmGiris.resources
+C:\Users\user\Desktop\Ozel-Ogrenci-Okul-Otomasyonu\Ozel-Ogrenci-Okul-Otomasyonu\obj\Debug\Ozel_Ogrenci_Okul_Otomasyonu.FrmSifremiUnuttum.resources
+C:\Users\user\Desktop\Ozel-Ogrenci-Okul-Otomasyonu\Ozel-Ogrenci-Okul-Otomasyonu\obj\Debug\Ozel_Ogrenci_Okul_Otomasyonu.UcTakvim.resources
+C:\Users\user\Desktop\Ozel-Ogrenci-Okul-Otomasyonu\Ozel-Ogrenci-Okul-Otomasyonu\bin\Debug\DevExpress.XtraScheduler.v24.1.Core.Desktop.dll
+C:\Users\user\Desktop\Ozel-Ogrenci-Okul-Otomasyonu\Ozel-Ogrenci-Okul-Otomasyonu\bin\Debug\DevExpress.XtraScheduler.v24.1.Core.dll
+C:\Users\user\Desktop\Ozel-Ogrenci-Okul-Otomasyonu\Ozel-Ogrenci-Okul-Otomasyonu\bin\Debug\DevExpress.XtraScheduler.v24.1.dll
+C:\Users\user\Desktop\Ozel-Ogrenci-Okul-Otomasyonu\Ozel-Ogrenci-Okul-Otomasyonu\bin\Debug\DevExpress.Images.v24.1.dll
+C:\Users\user\Desktop\Ozel-Ogrenci-Okul-Otomasyonu\Ozel-Ogrenci-Okul-Otomasyonu\bin\Debug\DevExpress.XtraScheduler.v24.1.xml
+C:\Users\user\Desktop\Ozel-Ogrenci-Okul-Otomasyonu\Ozel-Ogrenci-Okul-Otomasyonu\bin\Debug\DevExpress.XtraScheduler.v24.1.Core.xml
+C:\Users\user\Desktop\Ozel-Ogrenci-Okul-Otomasyonu\Ozel-Ogrenci-Okul-Otomasyonu\bin\Debug\DevExpress.XtraScheduler.v24.1.Core.Desktop.xml

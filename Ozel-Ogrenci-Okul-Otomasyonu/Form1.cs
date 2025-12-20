@@ -1,130 +1,204 @@
 ﻿using System;
+using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
-using System.Windows.Forms;
-using DevExpress.XtraBars.Ribbon;
-using DevExpress.XtraEditors;
-using Ozel_Ogrenci_Okul_Otomasyonu.DAL;
+using DevExpress.XtraBars;
+using Ozel_Ogrenci_Okul_Otomasyonu.DAL; // SQL Yardımcın
 
 namespace Ozel_Ogrenci_Okul_Otomasyonu
 {
-    public partial class Form1 : RibbonForm
+    public partial class Form1 : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        // GÜNCELLEME İÇİN ID TUTUCU
-        int secilenId = 0;
+        // Yetki Değişkenleri
+        public bool IsAdmin = true;
+        public int OgretmenID = 0;
+
+        // --- SAYFALAR (UserControls) ---
+        UcSeans _ucSeans;       
+        UcOgretmen _ucOgretmen;
+        UcTakvim _ucTakvim;
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        // --- PROGRAM AÇILINCA ---
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Başlangıçta SADECE Hoşgeldiniz ekranı açık olsun
+            // 1. Başlangıçta Dashboard (Panel) açık olsun
             pnlDashboard.Visible = true;
+            pnlDashboard.Dock = DockStyle.Fill;
+
+            // Öğrenci paneli gizli başlasın
             pnlOgrenciler.Visible = false;
+
+            // 2. Yetki ve Başlık Ayarı
+            if (IsAdmin)
+            {
+                this.Text = "OKUL OTOMASYONU - YÖNETİCİ PANELİ";
+            }
+            else
+            {
+                this.Text = "OKUL OTOMASYONU - ÖĞRETMEN PANELİ";
+                // Öğretmen ise Öğretmenler butonunu gizleyelim
+                ribbonPageGroup2.Visible = false;
+            }
+
+            // 3. Öğrenci Listesini Getir (Paneldeki Grid için)
+            Listele();
+
+            if (IsAdmin)
+            {
+                this.Text = "OKUL OTOMASYONU - YÖNETİCİ PANELİ";
+                // Yöneticiye takvim açmaya gerek yok, o dashboard görsün
+            }
+            else
+            {
+                this.Text = "OKUL OTOMASYONU - ÖĞRETMEN PANELİ";
+                ribbonPageGroup2.Visible = false; // Öğretmen yönetimini gizle
+
+                // --- YENİ KISIM: ÖĞRETMEN GİRER GİRMEZ TAKVİM AÇILSIN ---
+                pnlDashboard.Visible = false; // Admin dashboard'ı kapat
+
+                if (_ucTakvim == null)
+                {
+                    _ucTakvim = new UcTakvim();
+                    _ucTakvim.Dock = DockStyle.Fill;
+                    _ucTakvim.OgretmenID = this.OgretmenID; // Giriş yapan hocanın ID'sini gönder!
+                    this.Controls.Add(_ucTakvim);
+                }
+                _ucTakvim.Visible = true;
+                _ucTakvim.BringToFront();
+            }
         }
 
-        // --- SAHNE DEĞİŞTİRME MEKANİZMASI ---
-        void SahneDegistir(PanelControl acilacakPanel)
+        // ==========================================
+        //         NAVİGASYON (BUTONLAR)
+        // ==========================================
+
+        // 1. ANASAYFA
+        private void btnAnasayfa_ItemClick(object sender, ItemClickEventArgs e)
         {
-            // 1. Tüm sahneleri gizle
+            pnlDashboard.Visible = true;
+            pnlDashboard.BringToFront();
+
+            // Diğerlerini Gizle
+            pnlOgrenciler.Visible = false;
+            if (_ucSeans != null) _ucSeans.Visible = false;
+            if (_ucOgretmen != null) _ucOgretmen.Visible = false;
+            if (_ucTakvim != null) _ucTakvim.Visible = false;
+        }
+
+        // 2. ÖĞRENCİLER
+        private void btnOgrenciler_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            // Diğerlerini Gizle
+            pnlDashboard.Visible = false;
+            if (_ucSeans != null) _ucSeans.Visible = false;
+            if (_ucOgretmen != null) _ucOgretmen.Visible = false;
+            if (_ucTakvim != null) _ucTakvim.Visible = false;
+            // Öğrenci Panelini Aç
+            pnlOgrenciler.Visible = true;
+            pnlOgrenciler.Dock = DockStyle.Fill;
+            pnlOgrenciler.BringToFront();
+        }
+
+        // 3. SEANSLAR
+        private void btnSeanslar_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            // Diğerlerini Gizle
             pnlDashboard.Visible = false;
             pnlOgrenciler.Visible = false;
-
-            // 2. İsteneni aç
-            acilacakPanel.Visible = true;
-            acilacakPanel.Dock = DockStyle.Fill;
-            acilacakPanel.BringToFront();
+            if (_ucOgretmen != null) _ucOgretmen.Visible = false;
+            if (_ucTakvim != null) _ucTakvim.Visible = false;
+            // Seans UserControl'ünü Aç
+            if (_ucSeans == null || _ucSeans.IsDisposed)
+            {
+                _ucSeans = new UcSeans();
+                _ucSeans.Dock = DockStyle.Fill;
+                this.Controls.Add(_ucSeans);
+            }
+            _ucSeans.Visible = true;
+            _ucSeans.BringToFront();
         }
 
-        // --- BUTON TIKLAMALARI (MENÜ) ---
-
-        private void btnAnasayfa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        // 4. ÖĞRETMENLER (DÜZELTİLDİ - ARTIK ÇALIŞIYOR)
+        private void btnOgretmen_ItemClick(object sender, ItemClickEventArgs e)
         {
-            SahneDegistir(pnlDashboard);
+            // Diğerlerini Gizle
+            pnlDashboard.Visible = false;
+            pnlOgrenciler.Visible = false;
+            if (_ucSeans != null) _ucSeans.Visible = false;
+            if (_ucTakvim != null) _ucTakvim.Visible = false;
+            // Öğretmen UserControl'ünü Aç
+            if (_ucOgretmen == null || _ucOgretmen.IsDisposed)
+            {
+                _ucOgretmen = new UcOgretmen();
+                _ucOgretmen.Dock = DockStyle.Fill;
+                this.Controls.Add(_ucOgretmen);
+            }
+            _ucOgretmen.Visible = true;
+            _ucOgretmen.BringToFront();
         }
 
-        private void btnOgrenciler_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void btnTakvim_ItemClick(object sender, ItemClickEventArgs e)
         {
-            SahneDegistir(pnlOgrenciler);
-            Listele(); // Listeyi taze verilerle doldur
+            // 1. Diğer tüm pencereleri gizle
+            pnlDashboard.Visible = false;
+            pnlOgrenciler.Visible = false;
+            if (_ucSeans != null) _ucSeans.Visible = false;
+            if (_ucOgretmen != null) _ucOgretmen.Visible = false;
+
+            // 2. Takvim (UcTakvim) sayfasını aç
+            if (_ucTakvim == null || _ucTakvim.IsDisposed)
+            {
+                _ucTakvim = new UcTakvim();
+                _ucTakvim.Dock = DockStyle.Fill;
+                _ucTakvim.OgretmenID = this.OgretmenID; // Giriş yapan hocanın ID'sini gönder
+                this.Controls.Add(_ucTakvim);
+            }
+
+            _ucTakvim.Visible = true;
+            _ucTakvim.BringToFront();
         }
 
-        private void btnOgretmen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            // Öğretmen paneli eklendiğinde burası açılacak
-            // SahneDegistir(pnlOgretmenler);
-        }
+        // ==========================================
+        //      ÖĞRENCİ İŞLEMLERİ (Senin Panelin)
+        // ==========================================
 
-        // --- CRUD İŞLEMLERİ ---
-
-        // LİSTELEME
         void Listele()
         {
             try
             {
                 DataTable dt = SqlYardimcisi.VeriGetir("SELECT * FROM Tbl_Ogrenciler");
                 gridControl1.DataSource = dt;
-
-                // Grid ayarları (Otomatik sütun oluştur ve sığdır)
-                gridView1.PopulateColumns();
-                gridView1.BestFitColumns();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Listeleme Hatası: " + ex.Message);
+                // Hata durumunda sessiz kal veya logla
             }
         }
 
-        // TEMİZLEME
-        void Temizle()
-        {
-            textTc.Text = "";
-            textAd.Text = "";
-            dateDogum.EditValue = null;
-            cmbEngel.Text = "";
-            textEngelOrani.Text = "";
-            secilenId = 0;
-            btnKaydet.Text = "KAYDET";
-        }
-
-        // KAYDET BUTONU (Ekleme ve Güncelleme)
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textAd.Text))
-            {
-                MessageBox.Show("Lütfen en azından Ad Soyad giriniz.");
-                return;
-            }
-
             try
             {
-                string sorgu = "";
-
-                if (secilenId == 0) // YENİ KAYIT
-                {
-                    sorgu = "INSERT INTO Tbl_Ogrenciler (TCKimlikNo, AdSoyad, DogumTarihi, EngelTuru, EngelOrani) VALUES (@p1, @p2, @p3, @p4, @p5)";
-                }
-                else // GÜNCELLEME
-                {
-                    sorgu = "UPDATE Tbl_Ogrenciler SET TCKimlikNo=@p1, AdSoyad=@p2, DogumTarihi=@p3, EngelTuru=@p4, EngelOrani=@p5 WHERE OgrenciID=" + secilenId;
-                }
+                // NOT: Veritabanında EngelTuru, EngelOrani, DogumTarihi sütunları olmalı
+                string sorgu = "INSERT INTO Tbl_Ogrenciler (AdSoyad, TCNo, DogumTarihi, EngelTuru, EngelOrani) VALUES (@p1, @p2, @p3, @p4, @p5)";
 
                 SqlParameter[] p = {
-                    new SqlParameter("@p1", textTc.Text),
-                    new SqlParameter("@p2", textAd.Text),
-                    new SqlParameter("@p3", dateDogum.DateTime), // Tarih verisi
+                    new SqlParameter("@p1", textAd.Text),
+                    new SqlParameter("@p2", textTc.Text),
+                    new SqlParameter("@p3", dateDogum.DateTime.ToString("yyyy-MM-dd")),
                     new SqlParameter("@p4", cmbEngel.Text),
                     new SqlParameter("@p5", textEngelOrani.Text)
                 };
 
                 SqlYardimcisi.KomutCalistir(sorgu, p);
-                MessageBox.Show("İşlem Başarılı!");
+                MessageBox.Show("Öğrenci Başarıyla Kaydedildi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                Listele(); // Listeyi yenile
-                Temizle(); // Kutuları temizle
+                Listele();
+                Temizle();
             }
             catch (Exception ex)
             {
@@ -132,67 +206,74 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
             }
         }
 
-        // SİL BUTONU
         private void btnSil_Click(object sender, EventArgs e)
         {
-            if (secilenId == 0)
+            try
             {
-                MessageBox.Show("Lütfen listeden silinecek kaydı seçiniz.");
-                return;
-            }
+                DataRow dr = gridView1.GetDataRow(gridView1.FocusedRowHandle);
+                if (dr != null)
+                {
+                    string id = dr["OgrenciID"].ToString();
+                    DialogResult onay = MessageBox.Show("Bu öğrenciyi silmek istediğinize emin misiniz?", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-            if (MessageBox.Show("Bu kaydı silmek istediğinize emin misiniz?", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (onay == DialogResult.Yes)
+                    {
+                        SqlYardimcisi.KomutCalistir("DELETE FROM Tbl_Ogrenciler WHERE OgrenciID=" + id);
+                        MessageBox.Show("Öğrenci Silindi.");
+                        Listele();
+                        Temizle();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen silinecek öğrenciyi listeden seçiniz.");
+                }
+            }
+            catch (Exception ex)
             {
-                try
-                {
-                    SqlYardimcisi.KomutCalistir("DELETE FROM Tbl_Ogrenciler WHERE OgrenciID=" + secilenId);
-                    MessageBox.Show("Kayıt Silindi.");
-                    Listele();
-                    Temizle();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Silme Hatası: " + ex.Message);
-                }
+                MessageBox.Show("Silme Hatası: " + ex.Message);
             }
         }
 
-        // TEMİZLE BUTONU
         private void btnTemizle_Click(object sender, EventArgs e)
         {
             Temizle();
         }
 
-        // GRID TIKLAMA OLAYI (Seçileni Kutulara Doldur)
-        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        void Temizle()
         {
-            DataRow dr = gridView1.GetDataRow(gridView1.FocusedRowHandle);
-
-            if (dr != null)
-            {
-                secilenId = Convert.ToInt32(dr["OgrenciID"]);
-                textTc.Text = dr["TCKimlikNo"].ToString();
-                textAd.Text = dr["AdSoyad"].ToString();
-                cmbEngel.Text = dr["EngelTuru"].ToString();
-                textEngelOrani.Text = dr["EngelOrani"].ToString();
-
-                if (dr["DogumTarihi"] != DBNull.Value)
-                {
-                    dateDogum.DateTime = Convert.ToDateTime(dr["DogumTarihi"]);
-                }
-                else
-                {
-                    dateDogum.EditValue = null;
-                }
-
-                btnKaydet.Text = "GÜNCELLE"; // Modu değiştir
-            }
+            textAd.Text = "";
+            textTc.Text = "";
+            textEngelOrani.Text = "";
+            cmbEngel.Text = "";
+            dateDogum.Text = "";
         }
 
-        // --- GEREKSİZ AMA HATA VERMESİN DİYE DURAN METOTLAR ---
-        private void gridControl1_Click(object sender, EventArgs e) { }
-        private void dateDogum_EditValueChanged(object sender, EventArgs e) { }
-        private void pnlOgrenciler_Paint(object sender, PaintEventArgs e) { }
-        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.ViewFocusEventArgs e) { }
+        private void GridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            try
+            {
+                DataRow dr = gridView1.GetDataRow(gridView1.FocusedRowHandle);
+                if (dr != null)
+                {
+                    textAd.Text = dr["AdSoyad"].ToString();
+                    textTc.Text = dr["TCNo"].ToString();
+
+                    if (dr.Table.Columns.Contains("EngelTuru"))
+                        cmbEngel.Text = dr["EngelTuru"].ToString();
+
+                    if (dr.Table.Columns.Contains("EngelOrani"))
+                        textEngelOrani.Text = dr["EngelOrani"].ToString();
+
+                    if (dr["DogumTarihi"] != DBNull.Value)
+                    {
+                        dateDogum.DateTime = Convert.ToDateTime(dr["DogumTarihi"]);
+                    }
+                }
+            }
+            catch { }
+        }
+
+       
     }
 }

@@ -31,13 +31,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnAnasayfa = new DevExpress.XtraBars.BarButtonItem();
-            this.btnOgretmen = new DevExpress.XtraBars.BarButtonItem();
+            this.btnOgretmenn = new DevExpress.XtraBars.BarButtonItem();
             this.btnOgrenciler = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSeanslar = new DevExpress.XtraBars.BarButtonItem();
+            this.btnOgretmen = new DevExpress.XtraBars.BarButtonItem();
             this.btnyonetici = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.pnlDashboard = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.pnlOgrenciler = new DevExpress.XtraEditors.PanelControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.cardView1 = new DevExpress.XtraGrid.Views.Card.CardView();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.btnKaydet = new DevExpress.XtraEditors.SimpleButton();
             this.btnSil = new DevExpress.XtraEditors.SimpleButton();
@@ -52,15 +60,18 @@
             this.lblDogum = new DevExpress.XtraEditors.LabelControl();
             this.lblTc = new DevExpress.XtraEditors.LabelControl();
             this.lblAd = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.cardView1 = new DevExpress.XtraGrid.Views.Card.CardView();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnTakvim = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlDashboard)).BeginInit();
             this.pnlDashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnlOgrenciler)).BeginInit();
             this.pnlOgrenciler.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbEngel.Properties)).BeginInit();
@@ -69,8 +80,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateDogum.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textTc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textAd.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cardView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl1
@@ -79,14 +88,17 @@
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
             this.btnAnasayfa,
+            this.btnOgretmenn,
+            this.btnOgrenciler,
+            this.btnSeanslar,
             this.btnOgretmen,
-            this.btnOgrenciler});
+            this.btnTakvim});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 4;
+            this.ribbonControl1.MaxItemId = 8;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.btnyonetici});
-            this.ribbonControl1.Size = new System.Drawing.Size(1381, 158);
+            this.ribbonControl1.Size = new System.Drawing.Size(1480, 158);
             // 
             // btnAnasayfa
             // 
@@ -97,14 +109,10 @@
             this.btnAnasayfa.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnAnasayfa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAnasayfa_ItemClick);
             // 
-            // btnOgretmen
+            // btnOgretmenn
             // 
-            this.btnOgretmen.Caption = "OGRETMENLER";
-            this.btnOgretmen.Id = 2;
-            this.btnOgretmen.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnOgretmen.ImageOptions.LargeImage")));
-            this.btnOgretmen.Name = "btnOgretmen";
-            this.btnOgretmen.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnOgretmen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnOgretmen_ItemClick);
+            this.btnOgretmenn.Id = 6;
+            this.btnOgretmenn.Name = "btnOgretmenn";
             // 
             // btnOgrenciler
             // 
@@ -115,20 +123,52 @@
             this.btnOgrenciler.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnOgrenciler.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnOgrenciler_ItemClick);
             // 
+            // btnSeanslar
+            // 
+            this.btnSeanslar.Caption = "SEANS YONETIMI";
+            this.btnSeanslar.Id = 4;
+            this.btnSeanslar.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSeanslar.ImageOptions.LargeImage")));
+            this.btnSeanslar.Name = "btnSeanslar";
+            this.btnSeanslar.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSeanslar_ItemClick);
+            // 
+            // btnOgretmen
+            // 
+            this.btnOgretmen.Caption = "OGRETMENLER";
+            this.btnOgretmen.Id = 5;
+            this.btnOgretmen.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnOgretmen.ImageOptions.LargeImage")));
+            this.btnOgretmen.Name = "btnOgretmen";
+            this.btnOgretmen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnOgretmen_ItemClick);
+            // 
             // btnyonetici
             // 
             this.btnyonetici.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup2,
+            this.ribbonPageGroup3,
+            this.ribbonPageGroup4,
+            this.ribbonPageGroup5});
             this.btnyonetici.Name = "btnyonetici";
             this.btnyonetici.Text = "YONETICI";
             // 
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnAnasayfa);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnOgretmen);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnOgrenciler);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnOgretmen);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            // 
+            // ribbonPageGroup3
+            // 
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnOgrenciler);
+            this.ribbonPageGroup3.Name = "ribbonPageGroup3";
+            // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnSeanslar);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             // 
             // pnlDashboard
             // 
@@ -136,9 +176,17 @@
             this.pnlDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDashboard.Location = new System.Drawing.Point(0, 158);
             this.pnlDashboard.Name = "pnlDashboard";
-            this.pnlDashboard.Size = new System.Drawing.Size(1381, 512);
+            this.pnlDashboard.Size = new System.Drawing.Size(1480, 560);
             this.pnlDashboard.TabIndex = 1;
             this.pnlDashboard.Visible = false;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(372, 122);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(67, 13);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "HOSGELDINIZ\r\n";
             // 
             // pnlOgrenciler
             // 
@@ -148,25 +196,34 @@
             this.pnlOgrenciler.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlOgrenciler.Location = new System.Drawing.Point(0, 158);
             this.pnlOgrenciler.Name = "pnlOgrenciler";
-            this.pnlOgrenciler.Size = new System.Drawing.Size(1381, 512);
+            this.pnlOgrenciler.Size = new System.Drawing.Size(1480, 560);
             this.pnlOgrenciler.TabIndex = 1;
             this.pnlOgrenciler.Visible = false;
-            this.pnlOgrenciler.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlOgrenciler_Paint);
             // 
             // gridControl1
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gridControl1.Location = new System.Drawing.Point(548, 2);
+            this.gridControl1.Location = new System.Drawing.Point(569, 2);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.MenuManager = this.ribbonControl1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(831, 508);
+            this.gridControl1.Size = new System.Drawing.Size(909, 556);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.cardView1,
-            this.gridView1});
-            this.gridControl1.FocusedViewChanged += new DevExpress.XtraGrid.ViewFocusEventHandler(this.gridView1_FocusedRowChanged);
-            this.gridControl1.Click += new System.EventHandler(this.gridControl1_Click);
+            this.gridView1,
+            this.cardView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.GridView1_FocusedRowChanged);
+            // 
+            // cardView1
+            // 
+            this.cardView1.GridControl = this.gridControl1;
+            this.cardView1.Name = "cardView1";
+            this.cardView1.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Auto;
             // 
             // groupControl1
             // 
@@ -256,7 +313,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateDogum.Size = new System.Drawing.Size(100, 20);
             this.dateDogum.TabIndex = 7;
-            this.dateDogum.EditValueChanged += new System.EventHandler(this.dateDogum_EditValueChanged);
             // 
             // textTc
             // 
@@ -314,30 +370,40 @@
             this.lblAd.TabIndex = 0;
             this.lblAd.Text = "Adi Soyadi";
             // 
-            // labelControl1
+            // barButtonItem1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(372, 122);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(67, 13);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "HOSGELDINIZ\r\n";
+            this.barButtonItem1.Caption = "OGRETMENLER";
+            this.barButtonItem1.Id = 2;
+            this.barButtonItem1.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.barButtonItem1.Name = "barButtonItem1";
+            this.barButtonItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
-            // cardView1
+            // barButtonItem3
             // 
-            this.cardView1.GridControl = this.gridControl1;
-            this.cardView1.Name = "cardView1";
-            this.cardView1.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Auto;
+            this.barButtonItem3.Caption = "OGRETMENLER";
+            this.barButtonItem3.Id = 2;
+            this.barButtonItem3.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
+            this.barButtonItem3.Name = "barButtonItem3";
+            this.barButtonItem3.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
-            // gridView1
+            // ribbonPageGroup5
             // 
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnTakvim);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            // 
+            // btnTakvim
+            // 
+            this.btnTakvim.Caption = "TAKVİM";
+            this.btnTakvim.Id = 7;
+            this.btnTakvim.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTakvim.ImageOptions.LargeImage")));
+            this.btnTakvim.Name = "btnTakvim";
+            this.btnTakvim.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTakvim_ItemClick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1381, 670);
+            this.ClientSize = new System.Drawing.Size(1480, 718);
             this.Controls.Add(this.pnlOgrenciler);
             this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.ribbonControl1);
@@ -352,6 +418,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pnlOgrenciler)).EndInit();
             this.pnlOgrenciler.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -361,8 +429,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateDogum.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textTc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textAd.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cardView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,7 +440,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage btnyonetici;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem btnAnasayfa;
-        private DevExpress.XtraBars.BarButtonItem btnOgretmen;
+        private DevExpress.XtraBars.BarButtonItem btnOgretmenn;
         private DevExpress.XtraBars.BarButtonItem btnOgrenciler;
         private DevExpress.XtraEditors.PanelControl pnlDashboard;
         private DevExpress.XtraEditors.LabelControl labelControl1;
@@ -396,6 +462,15 @@
         private DevExpress.XtraEditors.SimpleButton btnKaydet;
         private DevExpress.XtraGrid.Views.Card.CardView cardView1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraBars.BarButtonItem btnSeanslar;
+        private DevExpress.XtraBars.BarButtonItem btnOgretmen;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraBars.BarButtonItem btnTakvim;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
     }
 }
 

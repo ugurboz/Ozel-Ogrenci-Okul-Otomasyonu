@@ -7,7 +7,7 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu.DAL
 {
     internal class SqlYardimcisi
     {
-        private static string BaglantiAdresi = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=OkulOtomasyonuDb;Integrated Security=True;Encrypt=False";
+        private static string BaglantiAdresi = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Ozel_Ogrenci_Okul_OtomasyonuDb;Integrated Security=True;Encrypt=False";
 
         // SELECT işlemleri için (Veri Getir)
         public static DataTable VeriGetir(string sorgu, SqlParameter[] p = null)
