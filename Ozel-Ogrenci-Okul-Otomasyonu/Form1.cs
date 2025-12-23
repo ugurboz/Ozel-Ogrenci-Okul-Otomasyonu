@@ -3,7 +3,8 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
 using DevExpress.XtraBars;
-using Ozel_Ogrenci_Okul_Otomasyonu.DAL; // SQL Yardımcın
+using Ozel_Ogrenci_Okul_Otomasyonu.DAL;
+using Ozel_Ogrenci_Okul_Otomasyonu; // SQL Yardımcın
 
 namespace Ozel_Ogrenci_Okul_Otomasyonu
 {
@@ -17,6 +18,8 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
         UcSeans _ucSeans;       
         UcOgretmen _ucOgretmen;
         UcTakvim _ucTakvim;
+        UcOdeme _ucOdeme;
+        UcAyarlar _ucAyarlar;
 
         public Form1()
         {
@@ -31,6 +34,7 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
 
             // Öğrenci paneli gizli başlasın
             pnlOgrenciler.Visible = false;
+            DashboardGuncelle();
 
             // 2. Yetki ve Başlık Ayarı
             if (IsAdmin)
@@ -81,6 +85,7 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
         {
             pnlDashboard.Visible = true;
             pnlDashboard.BringToFront();
+            DashboardGuncelle();
 
             // Diğerlerini Gizle
             pnlOgrenciler.Visible = false;
@@ -160,6 +165,52 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
 
             _ucTakvim.Visible = true;
             _ucTakvim.BringToFront();
+        }
+
+        void DashboardGuncelle()
+        {
+            try
+            {
+                // 1. ÖĞRENCİ SAYISI
+                DataTable dtOgrenci = SqlYardimcisi.VeriGetir("SELECT COUNT(*) FROM Tbl_Ogrenciler");
+                tileItem1.Text = "Öğrenci Sayısı\n" + dtOgrenci.Rows[0][0].ToString();
+
+                // 2. ÖĞRETMEN SAYISI
+                DataTable dtOgretmen = SqlYardimcisi.VeriGetir("SELECT COUNT(*) FROM Tbl_Ogretmenler");
+                tileItem2.Text = "Öğretmen Sayısı\n" + dtOgretmen.Rows[0][0].ToString();
+
+                // 3. BUGÜNKÜ DERSLER
+                string bugun = DateTime.Now.ToString("yyyy-MM-dd");
+                DataTable dtDers = SqlYardimcisi.VeriGetir("SELECT COUNT(*) FROM Tbl_Seanslar WHERE Tarih='" + bugun + "'");
+                tileItem3.Text = "Bugünkü Dersler\n" + dtDers.Rows[0][0].ToString();
+
+                // --- YENİ EKLENEN KISIM: KASA TOPLAM ---
+                DataTable dtKasa = SqlYardimcisi.VeriGetir("SELECT SUM(Tutar) FROM Tbl_Odemeler");
+
+                // Eğer hiç ödeme yoksa sonuç NULL döner, kontrol edelim
+                string toplamPara = dtKasa.Rows[0][0].ToString();
+                if (string.IsNullOrEmpty(toplamPara)) toplamPara = "0";
+
+                tileItem4.Text = "TOPLAM KAZANÇ\n" + toplamPara + " TL";
+                // ----------------------------------------
+
+                // 4. GRAFİK (CHART) GÜNCELLEME
+                chartControl1.Series.Clear();
+                DevExpress.XtraCharts.Series seri = new DevExpress.XtraCharts.Series("Engel Türleri", DevExpress.XtraCharts.ViewType.Pie);
+
+                DataTable dtGrafik = SqlYardimcisi.VeriGetir("SELECT EngelTuru, COUNT(*) as Sayi FROM Tbl_Ogrenciler GROUP BY EngelTuru");
+
+                foreach (DataRow dr in dtGrafik.Rows)
+                {
+                    seri.Points.Add(new DevExpress.XtraCharts.SeriesPoint(dr["EngelTuru"].ToString(), dr["Sayi"]));
+                }
+                chartControl1.Series.Add(seri);
+                seri.Label.TextPattern = "{A}: {VP:P0}";
+            }
+            catch (Exception ex)
+            {
+                // Hata olursa (mesela tileItem4 yoksa) program patlamasın
+            }
         }
 
         // ==========================================
@@ -274,6 +325,92 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
             catch { }
         }
 
-       
+        private void Muhasebe_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            // Diğerlerini gizle
+            pnlDashboard.Visible = false;
+            pnlOgrenciler.Visible = false;
+            if (_ucOgretmen != null) _ucOgretmen.Visible = false;
+            if (_ucSeans != null) _ucSeans.Visible = false;
+            if (_ucTakvim != null) _ucTakvim.Visible = false;
+
+            // Ödeme Sayfasını Aç
+            if (_ucOdeme == null || _ucOdeme.IsDisposed)
+            {
+                _ucOdeme = new UcOdeme();
+                _ucOdeme.Dock = DockStyle.Fill;
+                this.Controls.Add(_ucOdeme);
+            }
+            _ucOdeme.Visible = true;
+            _ucOdeme.BringToFront();
+        }
+
+        private void btnExcelAl_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Excel Dosyası|*.xlsx";
+            dialog.FileName = "Ogrenci_Listesi.xlsx"; // Varsayılan isim
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                // gridControl1 senin Form1 üzerindeki öğrenci tablon
+                gridControl1.ExportToXlsx(dialog.FileName);
+
+                if (MessageBox.Show("Dosya başarıyla oluşturuldu! Açmak ister misiniz?", "Bilgi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    System.Diagnostics.Process.Start(dialog.FileName);
+                }
+            }
+        }
+
+        private void btnPdfAl_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "PDF Dosyası|*.pdf";
+            dialog.FileName = "Ogrenci_Listesi.pdf";
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                gridControl1.ExportToPdf(dialog.FileName);
+
+                if (MessageBox.Show("Dosya başarıyla oluşturuldu! Açmak ister misiniz?", "Bilgi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    System.Diagnostics.Process.Start(dialog.FileName);
+                }
+            }
+        }
+
+        private void btnAyarlar_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            // --- DİĞER SAYFALARI GİZLE ---
+            pnlDashboard.Visible = false;      // Dashboard paneli
+            pnlOgrenciler.Visible = false;     // Öğrenci paneli
+
+            if (_ucOgretmen != null) _ucOgretmen.Visible = false;
+            if (_ucSeans != null) _ucSeans.Visible = false;
+            if (_ucTakvim != null) _ucTakvim.Visible = false;
+            if (_ucOdeme != null) _ucOdeme.Visible = false;
+
+            // --- AYARLAR SAYFASINI AÇ ---
+            if (_ucAyarlar == null || _ucAyarlar.IsDisposed)
+            {
+                _ucAyarlar = new UcAyarlar();
+                _ucAyarlar.Dock = DockStyle.Fill;
+
+                // KRİTİK NOKTA: Giriş yapan hocanın ID'sini gönderiyoruz
+                _ucAyarlar.OgretmenID = this.OgretmenID;
+
+                this.Controls.Add(_ucAyarlar);
+            }
+
+            _ucAyarlar.Visible = true;
+            _ucAyarlar.BringToFront();
+        }
+        // Ana Formun Kapanma Olayı (FormClosing)
+        private void FrmAnaSayfa_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Program kapanırken "Gün Sonu Kapanışı" diye son bir imza atar.
+            _ucAyarlar.GunlukIslemLogla("SİSTEM", "Gün sonu kapanışı yapıldı. Program kapatıldı.");
+        }
     }
 }

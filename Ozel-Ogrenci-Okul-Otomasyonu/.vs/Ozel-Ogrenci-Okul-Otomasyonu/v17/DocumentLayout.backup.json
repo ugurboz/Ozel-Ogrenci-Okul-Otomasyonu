@@ -3,48 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\uctakvim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|solutionrelative:uctakvim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|c:\\users\\user\\desktop\\ozel-ogrenci-okul-otomasyonu\\ozel-ogrenci-okul-otomasyonu\\yapayzekaservisi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|solutionrelative:yapayzekaservisi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\uctakvim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|solutionrelative:uctakvim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|c:\\users\\user\\desktop\\ozel-ogrenci-okul-otomasyonu\\ozel-ogrenci-okul-otomasyonu\\ucayarlar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|solutionrelative:ucayarlar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|c:\\users\\user\\desktop\\ozel-ogrenci-okul-otomasyonu\\ozel-ogrenci-okul-otomasyonu\\ucseans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|solutionrelative:ucseans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|c:\\users\\user\\desktop\\ozel-ogrenci-okul-otomasyonu\\ozel-ogrenci-okul-otomasyonu\\ucayarlar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|solutionrelative:ucayarlar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\ucseans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|solutionrelative:ucseans.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|c:\\users\\user\\desktop\\ozel-ogrenci-okul-otomasyonu\\ozel-ogrenci-okul-otomasyonu\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|c:\\users\\user\\desktop\\ozel-ogrenci-okul-otomasyonu\\ozel-ogrenci-okul-otomasyonu\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\frmgiris.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|solutionrelative:frmgiris.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|c:\\users\\user\\desktop\\ozel-ogrenci-okul-otomasyonu\\ozel-ogrenci-okul-otomasyonu\\ucodeme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|solutionrelative:ucodeme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|c:\\users\\user\\desktop\\ozel-ogrenci-okul-otomasyonu\\ozel-ogrenci-okul-otomasyonu\\ucodeme.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|solutionrelative:ucodeme.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\uctakvim.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|solutionrelative:uctakvim.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|c:\\users\\user\\desktop\\ozel-ogrenci-okul-otomasyonu\\ozel-ogrenci-okul-otomasyonu\\ucodeme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|solutionrelative:ucodeme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\ucogretmen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|solutionrelative:ucogretmen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|c:\\users\\user\\desktop\\ozel-ogrenci-okul-otomasyonu\\ozel-ogrenci-okul-otomasyonu\\ucogretmen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|solutionrelative:ucogretmen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}|Ozel-Ogrenci-Okul-Otomasyonu.csproj|C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\frmsifremiunuttum.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -58,56 +62,134 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FrmGiris.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\FrmGiris.cs",
-              "RelativeDocumentMoniker": "FrmGiris.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\FrmGiris.cs [Design]",
-              "RelativeToolTip": "FrmGiris.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T18:14:33.455Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "UcTakvim.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcTakvim.Designer.cs",
-              "RelativeDocumentMoniker": "UcTakvim.Designer.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcTakvim.Designer.cs",
-              "RelativeToolTip": "UcTakvim.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T17:54:59.069Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UcTakvim.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcTakvim.cs",
-              "RelativeDocumentMoniker": "UcTakvim.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcTakvim.cs",
-              "RelativeToolTip": "UcTakvim.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGgAAABWAAAAAAAAAA==",
+              "Title": "YapayZekaServisi.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\YapayZekaServisi.cs",
+              "RelativeDocumentMoniker": "YapayZekaServisi.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\YapayZekaServisi.cs*",
+              "RelativeToolTip": "YapayZekaServisi.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T17:52:53.753Z",
+              "WhenOpened": "2025-12-21T12:33:16.948Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UcTakvim.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcTakvim.cs",
-              "RelativeDocumentMoniker": "UcTakvim.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcTakvim.cs [Design]",
-              "RelativeToolTip": "UcTakvim.cs [Design]",
+              "Title": "UcAyarlar.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcAyarlar.cs",
+              "RelativeDocumentMoniker": "UcAyarlar.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcAyarlar.cs",
+              "RelativeToolTip": "UcAyarlar.cs",
+              "ViewState": "AgIAAEUBAAAAAAAAAAAYwEMBAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T17:49:08.084Z",
+              "WhenOpened": "2025-12-21T11:19:14.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UcAyarlar.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcAyarlar.cs",
+              "RelativeDocumentMoniker": "UcAyarlar.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcAyarlar.cs [Design]",
+              "RelativeToolTip": "UcAyarlar.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T21:48:01.08Z",
               "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\Form1.Designer.cs",
+              "RelativeToolTip": "Form1.Designer.cs",
+              "ViewState": "AgIAAGACAAAAAAAAAAApwGACAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T21:43:04.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UcOdeme.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcOdeme.Designer.cs",
+              "RelativeDocumentMoniker": "UcOdeme.Designer.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcOdeme.Designer.cs",
+              "RelativeToolTip": "UcOdeme.Designer.cs",
+              "ViewState": "AgIAAKYAAAAAAAAAAAAIwLsAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T21:10:39.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UcOdeme.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcOdeme.cs",
+              "RelativeDocumentMoniker": "UcOdeme.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcOdeme.cs",
+              "RelativeToolTip": "UcOdeme.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T21:04:42.897Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UcOdeme.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcOdeme.cs",
+              "RelativeDocumentMoniker": "UcOdeme.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcOdeme.cs [Design]",
+              "RelativeToolTip": "UcOdeme.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T20:57:23.042Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\Form1.cs [Design]",
+              "RelativeToolTip": "Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T22:21:08.69Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAAA0BAAAAAAAAAAAwwCIBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T23:21:59.527Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UcTakvim.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcTakvim.Designer.cs",
+              "RelativeDocumentMoniker": "UcTakvim.Designer.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcTakvim.Designer.cs",
+              "RelativeToolTip": "UcTakvim.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T17:54:59.069Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -118,83 +200,25 @@
               "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcOgretmen.cs [Design]",
               "RelativeToolTip": "UcOgretmen.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T17:41:01.353Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Form1.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\Form1.Designer.cs",
-              "RelativeDocumentMoniker": "Form1.Designer.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\Form1.Designer.cs",
-              "RelativeToolTip": "Form1.Designer.cs",
-              "ViewState": "AgIAAHUAAAAAAAAAAAAnwIsAAABdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T17:27:49.624Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T17:21:30.338Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UcSeans.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcSeans.cs",
-              "RelativeDocumentMoniker": "UcSeans.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcSeans.cs",
-              "RelativeToolTip": "UcSeans.cs",
-              "ViewState": "AgIAAG4AAAAAAAAAAAAiwLEAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T13:44:49.092Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UcSeans.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcSeans.cs",
-              "RelativeDocumentMoniker": "UcSeans.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcSeans.cs [Design]",
-              "RelativeToolTip": "UcSeans.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T13:42:46.598Z",
+              "WhenOpened": "2025-12-19T17:41:01.353Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\Form1.cs",
-              "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwAwAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T23:21:59.527Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\Form1.cs",
-              "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\Form1.cs [Design]",
-              "RelativeToolTip": "Form1.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T22:21:08.69Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 11,
+              "Title": "UcOgretmen.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcOgretmen.cs",
+              "RelativeDocumentMoniker": "UcOgretmen.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\UcOgretmen.cs",
+              "RelativeToolTip": "UcOgretmen.cs",
+              "ViewState": "AgIAAMwAAAAAAAAAAAAwwNoAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T20:42:10.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "FrmSifremiUnuttum.Designer.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\FrmSifremiUnuttum.Designer.cs",
               "RelativeDocumentMoniker": "FrmSifremiUnuttum.Designer.cs",
@@ -202,7 +226,8 @@
               "RelativeToolTip": "FrmSifremiUnuttum.Designer.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAD4v0EAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T16:59:43.308Z"
+              "WhenOpened": "2025-12-19T16:59:43.308Z",
+              "EditorCaption": ""
             }
           ]
         }

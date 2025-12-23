@@ -4,13 +4,13 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using Ozel_Ogrenci_Okul_Otomasyonu.DAL; // SQL Yardımcısı Sınıfın
+using Ozel_Ogrenci_Okul_Otomasyonu.DAL;
 
 namespace Ozel_Ogrenci_Okul_Otomasyonu
 {
     public partial class UcOgretmen : DevExpress.XtraEditors.XtraUserControl
     {
-        // Güncelleme işlemi için ID'yi hafızada tutuyoruz
+        // Güncelleme işlemi için ID
         int secilenOgrtId = 0;
 
         public UcOgretmen()
@@ -18,7 +18,6 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
             InitializeComponent();
         }
 
-        // --- SAYFA YÜKLENİNCE ---
         private void UcOgretmen_Load(object sender, EventArgs e)
         {
             Listele();
@@ -30,13 +29,12 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
         {
             try
             {
-                // Tablo adının Tbl_Ogretmenler olduğundan emin ol
                 DataTable dt = SqlYardimcisi.VeriGetir("SELECT * FROM Tbl_Ogretmenler");
                 gridControlOgretmen.DataSource = dt;
 
-                // Grid ayarları (Sütunları otomatik ayarla)
-                gridViewOgretmen.PopulateColumns();
+                // Grid Görünüm Ayarları
                 gridViewOgretmen.BestFitColumns();
+                gridViewOgretmen.OptionsBehavior.Editable = false; // Listede elle değiştirmesinler
             }
             catch (Exception ex)
             {
@@ -44,115 +42,80 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
             }
         }
 
-        // --- 2. BRANŞ SEÇİLİNCE DERSLERİ GETİR (Rehabilitasyon Formatı) ---
+        // --- 2. BRANŞA GÖRE DERS LİSTESİ (Rehabilitasyon) ---
         private void cmbBrans_SelectedIndexChanged(object sender, EventArgs e)
         {
             string secilenBrans = cmbBrans.Text;
+            listDersler.Items.Clear(); // Önce temizle
 
-            // Listeyi temizle (Önceki öğretmenden kalanlar silinsin)
-            listDersler.Items.Clear();
-
-            // API SİMÜLASYONU: Branşa Göre Eğitim/Terapi Listesi
             List<string> gelenDersler = new List<string>();
 
             switch (secilenBrans)
             {
                 case "Zihinsel Engelliler Öğretmeni":
-                    gelenDersler.AddRange(new string[] {
-                        "Öz Bakım Becerileri",
-                        "Günlük Yaşam Becerileri",
-                        "Toplumsal Uyum",
-                        "Okuma-Yazma Hazırlık",
-                        "Kavram Öğretimi"
-                    });
+                    gelenDersler.AddRange(new string[] { "Öz Bakım", "Günlük Yaşam", "Toplumsal Uyum", "Okuma-Yazma", "Kavram Öğretimi" });
                     break;
-
                 case "Fizyoterapist":
-                    gelenDersler.AddRange(new string[] {
-                        "Kaba Motor Becerileri",
-                        "İnce Motor Becerileri",
-                        "Denge ve Koordinasyon",
-                        "Kas Güçlendirme",
-                        "Yürüme Eğitimi"
-                    });
+                    gelenDersler.AddRange(new string[] { "Kaba Motor", "İnce Motor", "Denge-Koordinasyon", "Kas Güçlendirme", "Yürüme Eğitimi" });
                     break;
-
                 case "Dil ve Konuşma Terapisti":
-                    gelenDersler.AddRange(new string[] {
-                        "Ses Farkındalığı",
-                        "Akıcı Konuşma",
-                        "Dil Bozuklukları Terapisi",
-                        "Alternatif İletişim",
-                        "Yutma Bozuklukları"
-                    });
+                    gelenDersler.AddRange(new string[] { "Ses Farkındalığı", "Akıcı Konuşma", "Dil Bozuklukları", "Yutma Bozuklukları" });
                     break;
-
                 case "Psikolog / Rehberlik":
-                    gelenDersler.AddRange(new string[] {
-                        "Aile Eğitimi ve Danışmanlığı",
-                        "Davranış Problemleri",
-                        "Sosyal Beceri Eğitimi",
-                        "Mahremiyet Eğitimi"
-                    });
+                    gelenDersler.AddRange(new string[] { "Aile Eğitimi", "Davranış Problemleri", "Sosyal Beceri", "Mahremiyet Eğitimi" });
                     break;
-
                 case "Ergoterapist":
-                    gelenDersler.AddRange(new string[] {
-                        "Duyu Bütünleme",
-                        "El-Göz Koordinasyonu",
-                        "Bağımsız Yaşam Becerileri",
-                        "Dikkat ve Odaklanma"
-                    });
+                    gelenDersler.AddRange(new string[] { "Duyu Bütünleme", "El-Göz Koordinasyonu", "Dikkat ve Odaklanma" });
                     break;
-
                 case "Okul Öncesi":
-                    gelenDersler.AddRange(new string[] {
-                        "Oyun Terapisi",
-                        "Boyama ve Çizim",
-                        "Grup Etkinlikleri"
-                    });
+                    gelenDersler.AddRange(new string[] { "Oyun Terapisi", "Boyama ve Çizim", "Grup Etkinlikleri" });
                     break;
-
                 default:
                     gelenDersler.Add("Genel Rehabilitasyon");
                     break;
             }
 
-            // Listbox'a doldur
+            // Listeye Ekle
             foreach (string ders in gelenDersler)
             {
                 listDersler.Items.Add(ders);
             }
         }
 
-        // --- 3. KAYDET / GÜNCELLE BUTONU ---
+        // --- 3. KAYDET / GÜNCELLE ---
         private void btnOgrtKaydet_Click(object sender, EventArgs e)
         {
-            // İsim boşsa kaydetme
-            if (string.IsNullOrEmpty(txtOgrtAd.Text)) return;
+            if (string.IsNullOrEmpty(txtOgrtAd.Text))
+            {
+                MessageBox.Show("Lütfen Ad Soyad giriniz.");
+                return;
+            }
 
-            // Seçilen dersleri tek bir metne çevir (Örn: "Denge, Yürüme Eğitimi")
+            // Seçilen dersleri virgüllü metne çevir
             string secilenDersler = "";
             foreach (object item in listDersler.CheckedItems)
             {
                 secilenDersler += item.ToString() + ", ";
             }
-            // Sondaki virgülü temizle
             if (secilenDersler.Length > 2) secilenDersler = secilenDersler.Substring(0, secilenDersler.Length - 2);
 
             try
             {
                 string sorgu = "";
+                // Şifre kutusu boşsa varsayılan 1234 ata (Hata vermemesi için)
+                string sifre = string.IsNullOrEmpty(txtOgrtSifre.Text) ? "1234" : txtOgrtSifre.Text;
 
-                // ID 0 ise YENİ KAYIT
-                if (secilenOgrtId == 0)
+                if (secilenOgrtId == 0) // YENİ KAYIT
                 {
-                    sorgu = "INSERT INTO Tbl_Ogretmenler (AdSoyad, TCNo, Telefon, Mail, Brans, GirebilecegiDersler) VALUES (@p1, @p2, @p3, @p4, @p5, @p6)";
+                    sorgu = @"INSERT INTO Tbl_Ogretmenler 
+                              (AdSoyad, TCNo, Telefon, Mail, Brans, GirebilecegiDersler, Sifre) 
+                              VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7)";
                 }
-                // ID doluysa GÜNCELLEME
-                else
+                else // GÜNCELLEME
                 {
-                    sorgu = "UPDATE Tbl_Ogretmenler SET AdSoyad=@p1, TCNo=@p2, Telefon=@p3, Mail=@p4, Brans=@p5, GirebilecegiDersler=@p6 WHERE OgretmenID=" + secilenOgrtId;
+                    sorgu = @"UPDATE Tbl_Ogretmenler SET 
+                              AdSoyad=@p1, TCNo=@p2, Telefon=@p3, Mail=@p4, Brans=@p5, GirebilecegiDersler=@p6, Sifre=@p7 
+                              WHERE OgretmenID=" + secilenOgrtId;
                 }
 
                 SqlParameter[] p = {
@@ -161,27 +124,27 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
                     new SqlParameter("@p3", txtOgrtTel.Text),
                     new SqlParameter("@p4", txtOgrtMail.Text),
                     new SqlParameter("@p5", cmbBrans.Text),
-                    new SqlParameter("@p6", secilenDersler) // Metne çevirdiğimiz dersler
+                    new SqlParameter("@p6", secilenDersler),
+                    new SqlParameter("@p7", sifre) // Şifreyi de ekledim
                 };
 
                 SqlYardimcisi.KomutCalistir(sorgu, p);
-                MessageBox.Show("Öğretmen Başarıyla Kaydedildi!");
-
-                Listele(); // Listeyi yenile
-                Temizle(); // Kutuları boşalt
+                MessageBox.Show("İşlem Başarılı!");
+                Listele();
+                Temizle();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Kaydetme Hatası: " + ex.Message);
+                MessageBox.Show("Hata: " + ex.Message);
             }
         }
 
-        // --- 4. SİL BUTONU ---
+        // --- 4. SİL ---
         private void btnOgrtSil_Click(object sender, EventArgs e)
         {
             if (secilenOgrtId == 0) return;
 
-            if (MessageBox.Show("Bu öğretmeni silmek istediğinize emin misiniz?", "Silme Onayı", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Silmek istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 SqlYardimcisi.KomutCalistir("DELETE FROM Tbl_Ogretmenler WHERE OgretmenID=" + secilenOgrtId);
                 Listele();
@@ -189,70 +152,70 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
             }
         }
 
-        // --- 5. TEMİZLE BUTONU ---
+        // --- 5. TEMİZLE ---
         private void btnOgrtTemizle_Click(object sender, EventArgs e)
         {
             Temizle();
         }
 
-        // Formu temizleyen yardımcı metot
         void Temizle()
         {
             txtOgrtAd.Text = "";
             txtOgrtTc.Text = "";
             txtOgrtTel.Text = "";
             txtOgrtMail.Text = "";
+            txtOgrtSifre.Text = "";
             cmbBrans.Text = "";
-            listDersler.Items.Clear(); // Ders listesini de boşalt
+            listDersler.Items.Clear();
             secilenOgrtId = 0;
             btnOgrtKaydet.Text = "KAYDET";
         }
 
-        // --- 6. GRİD TIKLAMA (Verileri Geri Yükle) ---
+        // --- 6. GRİD SEÇİMİ (BİLGİLERİ DOLDUR) ---
         private void gridViewOgretmen_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             DataRow dr = gridViewOgretmen.GetDataRow(gridViewOgretmen.FocusedRowHandle);
-
             if (dr != null)
             {
-                secilenOgrtId = Convert.ToInt32(dr["OgretmenID"]);
-                txtOgrtAd.Text = dr["AdSoyad"].ToString();
-                txtOgrtTc.Text = dr["TCNo"].ToString();
-                txtOgrtTel.Text = dr["Telefon"].ToString();
-
-                // Mail sütunu yoksa hata vermesin diye try-catch içinde
-                try { txtOgrtMail.Text = dr["Mail"].ToString(); } catch { }
-
-                // Branşı yükleyince otomatik olarak cmbBrans_SelectedIndexChanged çalışır ve ders listesi dolar
-                cmbBrans.Text = dr["Brans"].ToString();
-
-                // Şimdi kayıtlı olan dersleri listede "Tikli" (Checked) yapalım
                 try
                 {
-                    string kayitliDersler = dr["GirebilecegiDersler"].ToString(); // "Denge, Yürüme"
-                    string[] dersDizisi = kayitliDersler.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                    secilenOgrtId = Convert.ToInt32(dr["OgretmenID"]);
+                    txtOgrtAd.Text = dr["AdSoyad"].ToString();
+                    txtOgrtTc.Text = dr["TCNo"].ToString();
 
-                    // Listeyi gez, veritabanında olanları işaretle
-                    for (int i = 0; i < listDersler.Items.Count; i++)
+                    if (dr.Table.Columns.Contains("Telefon")) txtOgrtTel.Text = dr["Telefon"].ToString();
+                    if (dr.Table.Columns.Contains("Mail")) txtOgrtMail.Text = dr["Mail"].ToString();
+                    if (dr.Table.Columns.Contains("Sifre")) txtOgrtSifre.Text = dr["Sifre"].ToString();
+
+                    // Branşı seçince listDersler otomatik dolar (SelectedIndexChanged sayesinde)
+                    if (dr.Table.Columns.Contains("Brans")) cmbBrans.Text = dr["Brans"].ToString();
+
+                    // --- CHECKBOX İŞARETLEME MANTIĞI ---
+                    if (dr.Table.Columns.Contains("GirebilecegiDersler"))
                     {
-                        string listedekiDers = listDersler.Items[i].ToString();
+                        string kayitliDersler = dr["GirebilecegiDersler"].ToString();
+                        string[] dersDizisi = kayitliDersler.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
-                        foreach (string dbDers in dersDizisi)
+                        // Listede bu dersleri bul ve tik at
+                        for (int i = 0; i < listDersler.Items.Count; i++)
                         {
-                            // Boşlukları temizleyip karşılaştır
-                            if (listedekiDers.Trim() == dbDers.Trim())
+                            string listedeki = listDersler.Items[i].ToString().Trim();
+                            foreach (string dbDers in dersDizisi)
                             {
-                                listDersler.SetItemChecked(i, true);
+                                if (listedeki == dbDers.Trim())
+                                {
+                                    listDersler.SetItemChecked(i, true);
+                                }
                             }
                         }
                     }
+
+                    btnOgrtKaydet.Text = "GÜNCELLE";
                 }
                 catch { }
-
-                btnOgrtKaydet.Text = "GÜNCELLE"; // Modu değiştir
             }
         }
 
-      
+       
     }
 }
