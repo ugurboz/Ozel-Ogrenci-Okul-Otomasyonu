@@ -1,0 +1,45 @@
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.VC.opendb
+
+# NuGet
+packages/
+*.nupkg
+
+# Database files (may contain API keys!)
+*.mdf
+*.ldf
+*.bak
+
+# Installer exe files (keep MSI in repo)
+# *.msi - Keeping MSI for easy download
+*.exe
+!setup.exe
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.DS_Store
+
+# Upgrade logs
+UpgradeLog*.htm
+
+# Temporary files 
+*.tmp
+*.temp
+~$*

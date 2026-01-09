@@ -18,16 +18,16 @@
             </applicationRequestMinimum>
             <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
                 <!--
-          UAC Bildirim Seçenekleri
-          Windows Kullanıcı Hesabı Denetimi düzeyini değiştirmek istiyorsanız,
-           requestedExecutionLevel düğümünü aşağıdakilerden biriyle değiştirin.
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the
+          requestedExecutionLevel node with one of the following.
 
         <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
         <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
         <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
 
-         Geriye dönük uyumluluk için Dosya ve Kayıt Defteri Sanallaştırması
-         kullanmak istiyorsanız, requestedExecutionLevel düğümünü silin.
+         If you want to utilize File and Registry Virtualization for backward
+         compatibility then delete the requestedExecutionLevel node.
     -->
                 <requestedExecutionLevel level="asInvoker" uiAccess="false" />
             </requestedPrivileges>
@@ -36,7 +36,7 @@
     <dependency>
         <dependentOS>
             <osVersionInfo>
-                <os majorVersion="4" minorVersion="10" buildNumber="0" servicePackMajor="0" />
+                <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
             </osVersionInfo>
         </dependentOS>
     </dependency>
@@ -449,7 +449,7 @@
                     <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
                 </dsig:Transforms>
                 <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-                <dsig:DigestValue>2XdiWrnqS+bzIrjP8PPoVIUf44fMIf6tNTP6lhI36fQ=</dsig:DigestValue>
+                <dsig:DigestValue>2Izie0+KDmCL0gsSnrU/61ron+GYxNn9iVjYXTiH4sY=</dsig:DigestValue>
             </hash>
         </dependentAssembly>
     </dependency>

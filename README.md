@@ -1,85 +1,134 @@
 # 🎓 Özel Öğrenci Okul Otomasyonu
 
-**Özel Öğrenci Okul Otomasyonu**, eğitim kurumlarının günlük operasyonlarını dijitalleştirmek, öğrenci ve personel takibini kolaylaştırmak ve finansal süreçleri yönetmek için tasarlanmış kapsamlı bir Windows masaüstü uygulamasıdır. **C#** ve **.NET Framework** altyapısı üzerine inşa edilmiş olup, **DevExpress** kütüphaneleri ile modern ve kullanıcı dostu bir arayüz sunar.
+[![C#](https://img.shields.io/badge/C%23-.NET%204.7.2-purple?logo=dotnet)](https://dotnet.microsoft.com/)
+[![DevExpress](https://img.shields.io/badge/DevExpress-v24.1-orange)](https://www.devexpress.com/)
+[![SQL Server](https://img.shields.io/badge/SQL%20Server-LocalDB-red?logo=microsoftsqlserver)](https://www.microsoft.com/sql-server)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+
+## 📌 Proje Hakkında
+
+Bu proje, **özel eğitim ve rehabilitasyon merkezlerinin** günlük operasyonlarını dijitalleştirmek amacıyla geliştirilmiş kapsamlı bir **okul yönetim sistemidir**.
+
+### Ne Yapar?
+- 📋 **Öğrenci kayıt ve takip** işlemlerini yönetir
+- 👨‍🏫 **Öğretmen atama** ve branş yönetimini sağlar
+- 🤖 **Yapay zeka ile otomatik ders programı** oluşturur (Gemini/ChatGPT API)
+- 📈 **Öğrenci gelişim grafiklerini** takip eder ve raporlar
+- 💰 **Ücretlendirme, taksit ve ödeme** süreçlerini yönetir
+- 📊 **Dashboard** ile anlık istatistikleri görselleştirir
+
+### Neden Bu Proje?
+Özel eğitim kurumları manuel süreçlerle çalışırken veri kaybı, takip zorluğu ve zaman kaybı yaşar. Bu sistem tüm süreçleri **tek merkezde** toplar, **veri bütünlüğünü** sağlar ve **yönetimsel kararları** hızlandırır.
+
+![Dashboard](screenshots/screen_2.png)
 
 ---
 
-## 🚀 Öne Çıkan Özellikler
+## ⬇️ Kurulum
 
-### 👥 Öğrenci ve Veli Yönetimi
-*   Detaylı öğrenci kayıt ve profil yönetimi.
-*   Veli iletişim bilgileri ve geçmiş kayıtlar.
-*   Öğrenci gelişim raporlaması.
+| İndir | Açıklama |
+|-------|----------|
+| [📦 setup.exe](setup.exe) | Tek tıkla kurulum |
+| [💿 MSI Installer](Ozel%20Ogrenci%20Okul%20Otomasyonu.msi) | Windows Installer |
+| [🔖 Releases](../../releases) | Tüm sürümler |
 
-### 📅 Akademik Takvim ve Planlama
-*   **Akıllı Ders Programı**: Yapay zeka destekli ders programı oluşturma ve optimizasyon.
-*   **Takvim Entegrasyonu**: Haftalık ve aylık ders programı görünümü.
-*   Öğretmen müsaitlik durumu takibi.
-
-### 💰 Finansal Yönetim
-*   **Fatura ve Tahsilat**: Öğrenci ücretlendirme, taksitlendirme ve ödeme takibi.
-*   **Raporlama**: Gelir/Gider dengesi ve ödenmemiş bakiye uyarıları.
-
-### 👨‍🏫 Personel Yönetimi
-*   Öğretmen atamaları ve branş yönetimi.
-*   Ders yükü takibi.
+> **Gereksinimler:** .NET Framework 4.7.2, SQL Server
 
 ---
 
-## 🛠 Teknoloji Yığını
+## ✨ Özellikler
 
-Bu proje aşağıdaki güçlü teknolojiler kullanılarak geliştirilmiştir:
-
-*   **Programlama Dili**: C#
-*   **Framework**: .NET Framework 4.7.2
-*   **Arayüz (UI)**: DevExpress v24.1 (WinForms)
-*   **Veritabanı**: Microsoft SQL Server
-*   **ORM / Veri Erişimi**: ADO.NET / Custom SQL Helpers
-
----
-
-## ⚙️ Kurulum ve Başlangıç
-
-Projeyi yerel makinenizde çalıştırmak için aşağıdaki adımları izleyin:
-
-### Gereksinimler
-*   Visual Studio 2019 veya daha yeni sürüm.
-*   .NET Framework 4.7.2 SDK.
-*   SQL Server (Express veya tam sürüm).
-*   DevExpress WinForms Components (v24.1).
-
-### Adım Adım Kurulum
-
-1.  **Projeyi Klonlayın**
-    ```bash
-    git clone https://github.com/ugurboz/Ozel-Ogrenci-Okul-Otomasyonu.git
-    ```
-
-2.  **Veritabanını Hazırlayın**
-    *   SQL Server Management Studio (SSMS) üzerinden yeni bir veritabanı oluşturun (Örn: `OkulOtomasyonDb`).
-    *   Proje dizinindeki `SetupDatabase.sql` dosyasını çalıştırarak gerekli tabloları oluşturun.
-
-3.  **Bağlantı Ayarlarını Yapılandırın**
-    *   `sqlYardimcisi.cs` veya `App.config` dosyasındaki *ConnectionString* değerini kendi sunucu bilgilerinizle güncelleyin.
-
-4.  **Derleme ve Çalıştırma**
-    *   Projeyi Visual Studio ile açın.
-    *   Solution Explorer üzerinden **Restore NuGet Packages** işlemi yapın.
-    *   `F5` tuşuna basarak uygulamayı başlatın.
+| Modül | Açıklama |
+|-------|----------|
+| 👥 **Öğrenci Yönetimi** | Kayıt, profil, gelişim takibi ve raporlama |
+| 👨‍🏫 **Personel Yönetimi** | Öğretmen atamaları, branş ve ders yükü |
+| 📅 **Ders Programı** | AI destekli otomatik planlama |
+| 💰 **Finans** | Ücretlendirme, taksit ve tahsilat takibi |
+| ⚙️ **Sistem** | Merkezi ayarlar ve yetki yönetimi |
 
 ---
 
-## 🤝 Katkıda Bulunma
+## 🛠️ Teknoloji
 
-Projeye katkıda bulunmak istiyorsanız:
-1.  Bu repoyu Fork'layın.
-2.  Yeni bir özellik dalı (feature branch) oluşturun (`git checkout -b ozellik/YeniOzellik`).
-3.  Değişikliklerinizi commit'leyin (`git commit -m 'Yeni özellik eklendi'`).
-4.  Dalı push'layın (`git push origin ozellik/YeniOzellik`).
-5.  Bir Pull Request oluşturun.
+```
+C# • .NET Framework 4.7.2 • DevExpress WinForms • SQL Server • ADO.NET
+```
+
+**Mimari:** Katmanlı Mimari (Layered Architecture) • OOP • SDLC
+
+---
+
+## 📸 Ekran Görüntüleri
+
+<details>
+<summary>🔐 Giriş</summary>
+
+![Giriş](screenshots/screen_10.png)
+</details>
+
+<details>
+<summary>👨‍🏫 Öğretmen Yönetimi</summary>
+
+![Öğretmen](screenshots/screen_3.png)
+</details>
+
+<details>
+<summary>👥 Öğrenci Yönetimi</summary>
+
+![Öğrenci](screenshots/screen_4.png)
+</details>
+
+<details>
+<summary>📈 Gelişim Takibi</summary>
+
+![Gelişim](screenshots/screen_5.png)
+</details>
+
+<details>
+<summary>📅 Haftalık Program</summary>
+
+![Program](screenshots/screen_6.png)
+</details>
+
+<details>
+<summary>💰 Ödeme Takibi</summary>
+
+![Ödeme](screenshots/screen_7.png)
+</details>
+
+<details>
+<summary>⚙️ Ayarlar</summary>
+
+![Ayarlar](screenshots/screen_8.png)
+</details>
+
+<details>
+<summary>🤖 AI Ders Planlama</summary>
+
+![AI](screenshots/screen_9.png)
+</details>
+
+---
+
+## 🚀 Geliştirici Kurulumu
+
+```bash
+git clone https://github.com/ugurboz/Ozel-Ogrenci-Okul-Otomasyonu.git
+```
+
+1. Visual Studio ile açın
+2. NuGet paketlerini restore edin
+3. `sqlYardimcisi.cs` bağlantı ayarlarını kontrol edin
+4. F5 ile çalıştırın
+
+---
+
+## 👤 Geliştirici
+
+**Uğur Boz** — Fırat Üniversitesi, Yazılım Mühendisliği
 
 ---
 
 ## 📄 Lisans
 
-Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır. Detaylar için lisans dosyasına bakınız.
+[MIT License](LICENSE)

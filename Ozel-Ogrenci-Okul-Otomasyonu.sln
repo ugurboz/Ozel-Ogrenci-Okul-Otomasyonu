@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36603.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ozel-Ogrenci-Okul-Otomasyonu", "Ozel-Ogrenci-Okul-Otomasyonu.csproj", "{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Ozel Ogrenci Okul Otomasyonu", "..\Ozel Ogrenci Okul Otomasyonu\Ozel Ogrenci Okul Otomasyonu.vdproj", "{8947E410-47DF-63BE-E16F-F284468D29CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ozel-Ogrenci-Okul-Otomasyonu", "Ozel-Ogrenci-Okul-Otomasyonu\Ozel-Ogrenci-Okul-Otomasyonu.csproj", "{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +15,6 @@ Global
 		{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4FBF92B-EC8E-4C43-AD24-1A4063E80302}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8947E410-47DF-63BE-E16F-F284468D29CB}.Debug|Any CPU.ActiveCfg = Debug
-		{8947E410-47DF-63BE-E16F-F284468D29CB}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
