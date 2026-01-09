@@ -63,7 +63,7 @@ C# • .NET Framework 4.7.2 • DevExpress WinForms • SQL Server • ADO.NET
 <details>
 <summary>🔐 Giriş</summary>
 
-![Giriş](screenshots/screen_10.png)
+![Giriş](screenshots/screen_1.png)
 </details>
 
 <details>
