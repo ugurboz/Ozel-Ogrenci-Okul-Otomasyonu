@@ -1,12 +1,87 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\Ozel-Ogrenci-Okul-Otomasyonu\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\user\\Documents\\Ozel-Ogrenci-Okul-Otomasyonu\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Documents\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\FrmGiris.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Ozel-Ogrenci-Okul-Otomasyonu\\FrmGiris.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Documents\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\FrmGiris.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Ozel-Ogrenci-Okul-Otomasyonu\\FrmGiris.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Documents\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\FrmGiris.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Ozel-Ogrenci-Okul-Otomasyonu\\FrmGiris.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\Documents\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\Form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Ozel-Ogrenci-Okul-Otomasyonu\\Form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FrmGiris.resx",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\FrmGiris.resx",
+              "RelativeDocumentMoniker": "Ozel-Ogrenci-Okul-Otomasyonu\\FrmGiris.resx",
+              "ToolTip": "C:\\Users\\user\\Documents\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\FrmGiris.resx",
+              "RelativeToolTip": "Ozel-Ogrenci-Okul-Otomasyonu\\FrmGiris.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-12-23T11:24:32.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FrmGiris.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\FrmGiris.cs",
+              "RelativeDocumentMoniker": "Ozel-Ogrenci-Okul-Otomasyonu\\FrmGiris.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\FrmGiris.cs",
+              "RelativeToolTip": "Ozel-Ogrenci-Okul-Otomasyonu\\FrmGiris.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T11:24:25.366Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FrmGiris.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\FrmGiris.Designer.cs",
+              "RelativeDocumentMoniker": "Ozel-Ogrenci-Okul-Otomasyonu\\FrmGiris.Designer.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\FrmGiris.Designer.cs",
+              "RelativeToolTip": "Ozel-Ogrenci-Okul-Otomasyonu\\FrmGiris.Designer.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAYwHAAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T11:19:04.36Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\Form1.cs",
+              "RelativeDocumentMoniker": "Ozel-Ogrenci-Okul-Otomasyonu\\Form1.cs",
+              "ToolTip": "C:\\Users\\user\\Documents\\Ozel-Ogrenci-Okul-Otomasyonu\\Ozel-Ogrenci-Okul-Otomasyonu\\Form1.cs",
+              "RelativeToolTip": "Ozel-Ogrenci-Okul-Otomasyonu\\Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T11:18:35.41Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -1,16 +1,11 @@
-﻿namespace Ozel_Ogrenci_Okul_Otomasyonu
+﻿using System;
+
+namespace Ozel_Ogrenci_Okul_Otomasyonu
 {
     partial class UcTakvim
     {
-        /// <summary> 
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,79 +17,134 @@
 
         #region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            DevExpress.XtraScheduler.TimeRuler timeRuler1 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler2 = new DevExpress.XtraScheduler.TimeRuler();
-            DevExpress.XtraScheduler.TimeRuler timeRuler3 = new DevExpress.XtraScheduler.TimeRuler();
-            this.schedulerControl1 = new DevExpress.XtraScheduler.SchedulerControl();
-            this.schedulerDataStorage1 = new DevExpress.XtraScheduler.SchedulerDataStorage(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).BeginInit();
+            this.pnlUst = new DevExpress.XtraEditors.PanelControl();
+            this.lblHaftaBilgi = new DevExpress.XtraEditors.LabelControl();
+            this.btnIleri = new DevExpress.XtraEditors.SimpleButton();
+            this.btnGeri = new DevExpress.XtraEditors.SimpleButton();
+            this.dateTarih = new DevExpress.XtraEditors.DateEdit();
+            this.gridControlTakvim = new DevExpress.XtraGrid.GridControl();
+            this.gridViewTakvim = new DevExpress.XtraGrid.Views.Grid.GridView();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlUst)).BeginInit();
+            this.pnlUst.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTarih.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTarih.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlTakvim)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewTakvim)).BeginInit();
             this.SuspendLayout();
             // 
-            // schedulerControl1
+            // pnlUst
             // 
-            this.schedulerControl1.ActiveViewType = DevExpress.XtraScheduler.SchedulerViewType.WorkWeek;
-            this.schedulerControl1.DataStorage = this.schedulerDataStorage1;
-            this.schedulerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.schedulerControl1.Location = new System.Drawing.Point(0, 0);
-            this.schedulerControl1.Name = "schedulerControl1";
-            this.schedulerControl1.Size = new System.Drawing.Size(1213, 614);
-            this.schedulerControl1.Start = new System.DateTime(2025, 12, 15, 0, 0, 0, 0);
-            this.schedulerControl1.TabIndex = 0;
-            this.schedulerControl1.Text = "schedulerControl1";
-            this.schedulerControl1.Views.DayView.TimeRulers.Add(timeRuler1);
-            this.schedulerControl1.Views.FullWeekView.Enabled = true;
-            this.schedulerControl1.Views.FullWeekView.TimeRulers.Add(timeRuler2);
-            this.schedulerControl1.Views.WeekView.Enabled = false;
-            this.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(timeRuler3);
-            this.schedulerControl1.Views.YearView.UseOptimizedScrolling = false;
-            this.schedulerControl1.AppointmentDrop += new DevExpress.XtraScheduler.AppointmentDragEventHandler(this.schedulerControl1_AppointmentDrop);
+            this.pnlUst.Controls.Add(this.lblHaftaBilgi);
+            this.pnlUst.Controls.Add(this.btnIleri);
+            this.pnlUst.Controls.Add(this.btnGeri);
+            this.pnlUst.Controls.Add(this.dateTarih);
+            this.pnlUst.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlUst.Location = new System.Drawing.Point(0, 0);
+            this.pnlUst.Name = "pnlUst";
+            this.pnlUst.Size = new System.Drawing.Size(1213, 60);
+            this.pnlUst.TabIndex = 0;
             // 
-            // schedulerDataStorage1
+            // lblHaftaBilgi
             // 
+            this.lblHaftaBilgi.Appearance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblHaftaBilgi.Appearance.Options.UseFont = true;
+            this.lblHaftaBilgi.Location = new System.Drawing.Point(400, 18);
+            this.lblHaftaBilgi.Name = "lblHaftaBilgi";
+            this.lblHaftaBilgi.Size = new System.Drawing.Size(0, 21);
+            this.lblHaftaBilgi.TabIndex = 3;
             // 
+            // btnIleri
             // 
+            this.btnIleri.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnIleri.Appearance.Options.UseFont = true;
+            this.btnIleri.Location = new System.Drawing.Point(280, 15);
+            this.btnIleri.Name = "btnIleri";
+            this.btnIleri.Size = new System.Drawing.Size(100, 30);
+            this.btnIleri.TabIndex = 2;
+            this.btnIleri.Text = "Hafta İleri >";
+            this.btnIleri.Click += new System.EventHandler(this.btnIleri_Click);
             // 
-            this.schedulerDataStorage1.AppointmentDependencies.AutoReload = false;
+            // btnGeri
             // 
+            this.btnGeri.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnGeri.Appearance.Options.UseFont = true;
+            this.btnGeri.Location = new System.Drawing.Point(20, 15);
+            this.btnGeri.Name = "btnGeri";
+            this.btnGeri.Size = new System.Drawing.Size(100, 30);
+            this.btnGeri.TabIndex = 1;
+            this.btnGeri.Text = "< Hafta Geri";
+            this.btnGeri.Click += new System.EventHandler(this.btnGeri_Click);
             // 
+            // dateTarih
             // 
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(0, "None", "&None", System.Drawing.SystemColors.Window);
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(1, "Important", "&Important", System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(194)))), ((int)(((byte)(190))))));
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(2, "Business", "&Business", System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(213)))), ((int)(((byte)(255))))));
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(3, "Personal", "&Personal", System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(244)))), ((int)(((byte)(156))))));
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(4, "Vacation", "&Vacation", System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(228)))), ((int)(((byte)(199))))));
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(5, "Must Attend", "Must &Attend", System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(206)))), ((int)(((byte)(147))))));
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(6, "Travel Required", "&Travel Required", System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(244)))), ((int)(((byte)(255))))));
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(7, "Needs Preparation", "&Needs Preparation", System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(219)))), ((int)(((byte)(152))))));
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(8, "Birthday", "&Birthday", System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(207)))), ((int)(((byte)(233))))));
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(9, "Anniversary", "&Anniversary", System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(233)))), ((int)(((byte)(223))))));
-            this.schedulerDataStorage1.Appointments.Labels.CreateNewLabel(10, "Phone Call", "Phone &Call", System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(247)))), ((int)(((byte)(165))))));
+            this.dateTarih.EditValue = null;
+            this.dateTarih.Location = new System.Drawing.Point(130, 18);
+            this.dateTarih.Name = "dateTarih";
+            this.dateTarih.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dateTarih.Properties.Appearance.Options.UseFont = true;
+            this.dateTarih.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateTarih.Size = new System.Drawing.Size(140, 24);
+            this.dateTarih.TabIndex = 0;
+            this.dateTarih.EditValueChanged += new System.EventHandler(this.dateTarih_EditValueChanged);
+            // 
+            // gridControlTakvim
+            // 
+            this.gridControlTakvim.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlTakvim.Location = new System.Drawing.Point(0, 60);
+            this.gridControlTakvim.MainView = this.gridViewTakvim;
+            this.gridControlTakvim.Name = "gridControlTakvim";
+            this.gridControlTakvim.Size = new System.Drawing.Size(1213, 554);
+            this.gridControlTakvim.TabIndex = 1;
+            this.gridControlTakvim.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewTakvim});
+            // 
+            // gridViewTakvim
+            // 
+            this.gridViewTakvim.Appearance.HeaderPanel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.gridViewTakvim.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridViewTakvim.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTakvim.Appearance.Row.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gridViewTakvim.Appearance.Row.Options.UseFont = true;
+            this.gridViewTakvim.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTakvim.Appearance.Row.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTakvim.GridControl = this.gridControlTakvim;
+            this.gridViewTakvim.Name = "gridViewTakvim";
+            this.gridViewTakvim.OptionsBehavior.Editable = false;
+            this.gridViewTakvim.OptionsView.RowAutoHeight = true;
+            this.gridViewTakvim.OptionsView.ShowGroupPanel = false;
+            this.gridViewTakvim.RowHeight = 50;
             // 
             // UcTakvim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.schedulerControl1);
+            this.Controls.Add(this.gridControlTakvim);
+            this.Controls.Add(this.pnlUst);
             this.Name = "UcTakvim";
             this.Size = new System.Drawing.Size(1213, 614);
             this.Load += new System.EventHandler(this.UcTakvim_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schedulerDataStorage1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlUst)).EndInit();
+            this.pnlUst.ResumeLayout(false);
+            this.pnlUst.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTarih.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTarih.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlTakvim)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewTakvim)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraScheduler.SchedulerControl schedulerControl1;
-        private DevExpress.XtraScheduler.SchedulerDataStorage schedulerDataStorage1;
+        private DevExpress.XtraEditors.PanelControl pnlUst;
+        private DevExpress.XtraEditors.SimpleButton btnIleri;
+        private DevExpress.XtraEditors.SimpleButton btnGeri;
+        private DevExpress.XtraEditors.DateEdit dateTarih;
+        private DevExpress.XtraEditors.LabelControl lblHaftaBilgi;
+        private DevExpress.XtraGrid.GridControl gridControlTakvim;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewTakvim;
     }
 }

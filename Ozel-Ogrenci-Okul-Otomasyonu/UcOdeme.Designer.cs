@@ -56,18 +56,24 @@
             // gridControlOdeme
             // 
             this.gridControlOdeme.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gridControlOdeme.Location = new System.Drawing.Point(402, 0);
+            this.gridControlOdeme.Location = new System.Drawing.Point(410, 0);
             this.gridControlOdeme.MainView = this.gridViewOdeme;
             this.gridControlOdeme.Name = "gridControlOdeme";
-            this.gridControlOdeme.Size = new System.Drawing.Size(841, 648);
+            this.gridControlOdeme.Size = new System.Drawing.Size(833, 648);
             this.gridControlOdeme.TabIndex = 0;
             this.gridControlOdeme.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewOdeme});
             // 
             // gridViewOdeme
             // 
+            this.gridViewOdeme.Appearance.HeaderPanel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.gridViewOdeme.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridViewOdeme.Appearance.Row.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gridViewOdeme.Appearance.Row.Options.UseFont = true;
             this.gridViewOdeme.GridControl = this.gridControlOdeme;
             this.gridViewOdeme.Name = "gridViewOdeme";
+            this.gridViewOdeme.OptionsView.RowAutoHeight = true;
+            this.gridViewOdeme.OptionsView.ShowGroupPanel = false;
             this.gridViewOdeme.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewOdeme_FocusedRowChanged);
             // 
             // lueOgrenci
@@ -81,6 +87,10 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.groupControl1.AppearanceCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(142)))), ((int)(((byte)(60)))));
+            this.groupControl1.AppearanceCaption.Options.UseFont = true;
+            this.groupControl1.AppearanceCaption.Options.UseForeColor = true;
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.labelControl1);
@@ -91,11 +101,12 @@
             this.groupControl1.Controls.Add(this.dateTarih);
             this.groupControl1.Controls.Add(this.lueOgrenci);
             this.groupControl1.Controls.Add(this.txtTutar);
-            this.groupControl1.Location = new System.Drawing.Point(12, 27);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(365, 539);
+            this.groupControl1.Size = new System.Drawing.Size(410, 648);
             this.groupControl1.TabIndex = 2;
-            this.groupControl1.Text = "groupControl1";
+            this.groupControl1.Text = "Ödeme / Muhasebe İşlemleri";
             // 
             // labelControl3
             // 

@@ -3,11 +3,12 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Net;
 using System.Net.Mail;
-using Ozel_Ogrenci_Okul_Otomasyonu.DAL; // SQL Yardımcın
+using DevExpress.XtraEditors;
+using Ozel_Ogrenci_Okul_Otomasyonu.DAL;
 
 namespace Ozel_Ogrenci_Okul_Otomasyonu
 {
-    public partial class FrmSifremiUnuttum : Form
+    public partial class FrmSifremiUnuttum : XtraForm
     {
         public FrmSifremiUnuttum()
         {
@@ -17,7 +18,6 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
         private void FrmSifremiUnuttum_Load(object sender, EventArgs e)
         {
             this.Text = "Şifre Kurtarma";
-            this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -84,6 +84,6 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
             istemci.Send(mesaj);
         }
 
-       
+
     }
 }

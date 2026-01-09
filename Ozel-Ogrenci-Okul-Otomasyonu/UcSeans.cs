@@ -9,6 +9,10 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
 {
     public partial class UcSeans : DevExpress.XtraEditors.XtraUserControl
     {
+        // Yetki Özellikleri
+        public bool IsAdmin { get; set; } = true;
+        public int OgretmenID { get; set; }
+
         public UcSeans()
         {
             InitializeComponent();
@@ -21,9 +25,18 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
             OgretmenleriYukle();
             SeanslariListele();
 
-          
             dateTarih.DateTime = DateTime.Now;
-            gridControlSeans.ContextMenuStrip = cmsSeans;
+            // Context menü kaldırıldı
+
+            // ============================================
+            // ÖĞRETMEN YETKİ KONTROLÜ
+            // ============================================
+            if (!IsAdmin)
+            {
+                // Öğretmen seçim kutusunu devre dışı bırak ve sadece kendini göster
+                lueOgretmen.Enabled = false;
+                lueOgretmen.EditValue = this.OgretmenID;
+            }
         }
 
         // --- 1. LİSTELEME (JOIN İLE) ---
@@ -31,21 +44,28 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
         {
             try
             {
-                // BURASI ÇOK ÖNEMLİ:
-                // Tabloda sadece ID'ler (1, 2) var. İsimleri görmek için diğer tablolarla birleştiriyoruz (JOIN).
+                // Temel sorgu
                 string sorgu = @"
                     SELECT 
                         S.SeansID,
+                        S.OgrenciID,
                         O.AdSoyad AS 'Öğrenci',
+                        S.OgretmenID,
                         T.AdSoyad AS 'Öğretmen',
                         T.Brans AS 'Branş',
                         S.Tarih,
-                        S.Saat,
-                        S.YoklamaDurumu
+                        S.Saat
                     FROM Tbl_Seanslar S
                     INNER JOIN Tbl_Ogrenciler O ON S.OgrenciID = O.OgrenciID
-                    INNER JOIN Tbl_Ogretmenler T ON S.OgretmenID = T.OgretmenID
-                    ORDER BY S.Tarih DESC";
+                    INNER JOIN Tbl_Ogretmenler T ON S.OgretmenID = T.OgretmenID";
+
+                // Öğretmen ise sadece kendi seanslarını görsün
+                if (!IsAdmin && OgretmenID > 0)
+                {
+                    sorgu += $" WHERE S.OgretmenID = {OgretmenID}";
+                }
+
+                sorgu += " ORDER BY S.Tarih DESC";
 
                 DataTable dt = SqlYardimcisi.VeriGetir(sorgu);
                 gridControlSeans.DataSource = dt;
@@ -120,61 +140,42 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
             // Yapmak istersen söyle, ekleyelim.
         }
 
-        // --- SAĞ TIK: ÖĞRENCİ GELDİ ---
-        private void öğrenciGeldiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            YoklamaGuncelle(true); // TRUE = Geldi
-        }
+        // --- SAĞ TIK MENÜSÜ KALDIRILDI ---
 
-        // --- SAĞ TIK: GELMEDİ / İPTAL ---
-        private void gelmediİptalToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            YoklamaGuncelle(false); // FALSE = Gelmedi
-        }
-
-        // --- ORTAK GÜNCELLEME METODU ---
-        void YoklamaGuncelle(bool durum)
-        {
-            // Seçili satırın ID'sini al
-            DataRow dr = gridViewSeans.GetDataRow(gridViewSeans.FocusedRowHandle);
-            if (dr == null) return;
-
-            int id = Convert.ToInt32(dr["SeansID"]); // ID'yi yakaladık
-
-            // Veritabanını Güncelle
-            // 1 (True) -> Geldi, 0 (False) -> Gelmedi
-            string sqlDurum = durum ? "1" : "0";
-
-            SqlYardimcisi.KomutCalistir($"UPDATE Tbl_Seanslar SET YoklamaDurumu={sqlDurum} WHERE SeansID=" + id);
-
-            // Kullanıcıya bilgi verip listeyi yenile
-            MessageBox.Show(durum ? "Öğrenci GELDİ olarak işaretlendi." : "Öğrenci GELMEDİ olarak işaretlendi.");
-            SeanslariListele();
-        }
 
         // GridView -> Events (Şimşek) -> RowStyle olayına bağla!
+        // Renklendirme kaldırıldı
         private void gridViewSeans_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
         {
-            if (e.RowHandle >= 0)
-            {
-                object durum = gridViewSeans.GetRowCellValue(e.RowHandle, "YoklamaDurumu");
-
-                if (durum != null && durum != DBNull.Value)
-                {
-                    bool geldiMi = Convert.ToBoolean(durum);
-
-                    // --- KRİTİK AYARLAR ---
-                    e.HighPriority = true; // 1. Temayı Ez!
-                    e.Appearance.Options.UseBackColor = true; // 2. Arka plan rengini kullanmayı aç!
-
-                    if (geldiMi)
-                        e.Appearance.BackColor = System.Drawing.Color.LightGreen;
-                    else
-                        e.Appearance.BackColor = System.Drawing.Color.Salmon;
-                }
-            }
+            // Renklendirme kapatıldı
         }
 
-       
+        // Satır seçilince form alanlarını doldur
+        private void gridViewSeans_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            if (e.FocusedRowHandle < 0) return;
+
+            DataRow dr = gridViewSeans.GetDataRow(e.FocusedRowHandle);
+            if (dr == null) return;
+
+            // LookUpEdit'lere ID değerlerini ata
+            if (dr["OgrenciID"] != DBNull.Value)
+                lueOgrenci.EditValue = dr["OgrenciID"];
+
+            if (dr["OgretmenID"] != DBNull.Value)
+                lueOgretmen.EditValue = dr["OgretmenID"];
+
+            // Tarih ve saat doldur
+            if (dr["Tarih"] != DBNull.Value)
+                dateTarih.DateTime = Convert.ToDateTime(dr["Tarih"]);
+
+            if (dr["Saat"] != DBNull.Value)
+                timeSaat.Text = dr["Saat"].ToString();
+        }
+
+        private void btnTemizle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

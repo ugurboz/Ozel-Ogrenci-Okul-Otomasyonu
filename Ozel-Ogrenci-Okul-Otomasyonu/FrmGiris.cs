@@ -2,33 +2,40 @@
 using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using DevExpress.XtraEditors;
 using Ozel_Ogrenci_Okul_Otomasyonu.DAL;
 
 namespace Ozel_Ogrenci_Okul_Otomasyonu
 {
-    public partial class FrmGiris : Form
+    public partial class FrmGiris : XtraForm
     {
         public FrmGiris()
         {
             InitializeComponent();
+            ApplyModernStyle();
+        }
+
+        private void ApplyModernStyle()
+        {
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            // Renk paleti Form1 ile uyumlu olacak (Designer'da set edeceğiz ama burada da dursun)
         }
 
         // Giriş yapan hocanın ID'sini tüm programda kullanmak için Static yaptık
         public static int GirisYapanOgretmenID = 0;
 
-        private void FrmGiris_Load(object sender, EventArgs e)
-        {
-            // Form açılınca ortada dursun ve şık görünsün
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.FormBorderStyle = FormBorderStyle.FixedToolWindow; // Sadece Kapat butonu olsun
-            this.Text = "Rehabilitasyon Merkezi Giriş";
-        }
-
         private void btnGiris_Click(object sender, EventArgs e)
         {
-            // ... (Boşluk kontrolleri vs aynı kalsın) ...
+            // Boşluk kontrolü
+            if (string.IsNullOrWhiteSpace(txtKullanici.Text) || string.IsNullOrWhiteSpace(txtSifre.Text))
+            {
+                MessageBox.Show("Lütfen kullanıcı adı ve şifre giriniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            if (tglGirisTuru.IsOn)
+            if (chkYonetici.Checked)
             {
                 // --- YÖNETİCİ GİRİŞİ ---
                 string sorgu = "SELECT * FROM Tbl_Yoneticiler WHERE KullaniciAdi=@p1 AND Sifre=@p2";
@@ -38,16 +45,13 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
                 if (dt.Rows.Count > 0)
                 {
                     Form1 fr = new Form1();
-
-                    // FORM1'E BİLGİ GÖNDERİYORUZ:
-                    fr.IsAdmin = true; // Bu bir YÖNETİCİ
-
+                    fr.IsAdmin = true;
                     fr.Show();
                     this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show("Hatalı Giriş!");
+                    MessageBox.Show("Hatalı kullanıcı adı veya şifre!", "Giriş Başarısız", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -60,26 +64,62 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
                 if (dt.Rows.Count > 0)
                 {
                     Form1 fr = new Form1();
+                    fr.IsAdmin = false;
+                    fr.OgretmenID = Convert.ToInt32(dt.Rows[0]["OgretmenID"]);
 
-                    // FORM1'E BİLGİ GÖNDERİYORUZ:
-                    fr.IsAdmin = false; // Bu bir yönetici DEĞİL
-                    fr.OgretmenID = Convert.ToInt32(dt.Rows[0]["OgretmenID"]); // ID'yi verelim
+                    // Öğretmen ad soyad bilgisini aktar
+                    if (dt.Rows[0]["AdSoyad"] != DBNull.Value)
+                        fr.OgretmenAdSoyad = dt.Rows[0]["AdSoyad"].ToString();
+
+                    // Öğretmen fotoğrafını aktar
+                    if (dt.Rows[0]["Fotograf"] != DBNull.Value)
+                        fr.OgretmenFoto = (byte[])dt.Rows[0]["Fotograf"];
 
                     fr.Show();
                     this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show("Hatalı Giriş!");
+                    MessageBox.Show("Hatalı TC No veya şifre!", "Giriş Başarısız", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
             }
         }
 
-        private void lblSifremiUnuttum_Click(object sender, EventArgs e)
+        private void lblSifremiUnuttum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FrmSifremiUnuttum fr = new FrmSifremiUnuttum();
-            fr.ShowDialog(); // ShowDialog: Bu pencere kapanmadan arkadakine tıklatmaz
+            fr.ShowDialog();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        // Window Drag Logic
+        private bool dragging = false;
+        private Point dragCursorPoint;
+        private Point dragFormPoint;
+
+        private void FrmGiris_MouseDown(object sender, MouseEventArgs e)
+        {
+            dragging = true;
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = this.Location;
+        }
+
+        private void FrmGiris_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point diff = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = Point.Add(dragFormPoint, new Size(diff));
+            }
+        }
+
+        private void FrmGiris_MouseUp(object sender, MouseEventArgs e)
+        {
+            dragging = false;
         }
     }
 }

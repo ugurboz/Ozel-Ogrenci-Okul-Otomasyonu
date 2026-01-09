@@ -35,6 +35,23 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
                 // Grid Görünüm Ayarları
                 gridViewOgretmen.BestFitColumns();
                 gridViewOgretmen.OptionsBehavior.Editable = false; // Listede elle değiştirmesinler
+
+                // Fotograf kolonunu küçük göster
+                if (gridViewOgretmen.Columns["Fotograf"] != null)
+                {
+                    var fotografKolon = gridViewOgretmen.Columns["Fotograf"];
+                    fotografKolon.Width = 50;
+                    fotografKolon.MaxWidth = 50;
+
+                    // Resmi küçük thumbnail olarak göster
+                    var repoPicture = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
+                    repoPicture.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Zoom;
+                    gridControlOgretmen.RepositoryItems.Add(repoPicture);
+                    fotografKolon.ColumnEdit = repoPicture;
+                }
+
+                // Satır yüksekliğini sabit tut
+                gridViewOgretmen.RowHeight = 50;
             }
             catch (Exception ex)
             {
@@ -102,8 +119,8 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
             try
             {
                 string sorgu = "";
-                // Şifre kutusu boşsa varsayılan 1234 ata (Hata vermemesi için)
-                string sifre = string.IsNullOrEmpty(txtOgrtSifre.Text) ? "1234" : txtOgrtSifre.Text;
+                // Şifre kutusu boşsa varsayılan olarak TC Kimlik No ata, o da yoksa 1234
+                string sifre = string.IsNullOrEmpty(txtOgrtSifre.Text) ? (string.IsNullOrEmpty(txtOgrtTc.Text) ? "1234" : txtOgrtTc.Text) : txtOgrtSifre.Text;
 
                 if (secilenOgrtId == 0) // YENİ KAYIT
                 {
@@ -216,6 +233,6 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
             }
         }
 
-       
+
     }
 }

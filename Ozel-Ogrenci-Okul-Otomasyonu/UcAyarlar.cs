@@ -13,6 +13,8 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
     {
         // Giriş yapan öğretmenin ID'si (Login ekranından buraya set edilmeli)
         public int OgretmenID { get; set; }
+        public bool IsAdmin { get; set; } = true; // Varsayılan: Admin
+        private bool _isLoading = false; // Yükleme sırasında uyarıları engelle
 
         public UcAyarlar()
         {
@@ -25,7 +27,20 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
             // Tasarım modunda veritabanı çekmeye çalışıp hata vermemesi için kontrol
             if (!this.DesignMode)
             {
+                _isLoading = true;
+
+                // ============================================
+                // ÖĞRETMEN YETKİ KONTROLÜ
+                // ============================================
+                if (!IsAdmin)
+                {
+                    // Öğretmenler için API ve Mesai ayarlarını gizle
+                    groupControl1.Visible = false; // Okul/Ders Ayarları (Mesai saatleri)
+                    groupControl2.Visible = false; // Yapay Zeka (API Ayarları)
+                }
+
                 AyarlariGetir();
+                _isLoading = false;
             }
         }
 
@@ -54,14 +69,26 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
 
                     // Log Ayarları
                     if (dr["GunlukLogTut"] != DBNull.Value)
-                        checkBoxGunlukLog.Checked = Convert.ToBoolean(dr["GunlukLogTut"]);
+                        chkGunlukLog.Checked = Convert.ToBoolean(dr["GunlukLogTut"]);
 
                     if (dr["LogDosyaYolu"] != DBNull.Value)
                         txtDosyaYolu.Text = dr["LogDosyaYolu"].ToString();
                     // ... diğer kodların altına ...
-                    if (dr["ApiKey"] != DBNull.Value)
+                    // API Key
+                    if (dt.Columns.Contains("ApiKey") && dr["ApiKey"] != DBNull.Value)
                     {
                         txtApiKey.Text = dr["ApiKey"].ToString();
+                    }
+
+                    // API Sağlayıcı seçimi
+                    if (dt.Columns.Contains("ApiProvider") && dr["ApiProvider"] != DBNull.Value)
+                    {
+                        string provider = dr["ApiProvider"].ToString();
+                        cmbApiProvider.SelectedItem = provider;
+                    }
+                    else
+                    {
+                        cmbApiProvider.SelectedIndex = 0; // Varsayılan: Gemini
                     }
                 }
             }
@@ -130,7 +157,7 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
 
                 SqlParameter[] p = {
                     new SqlParameter("@p1", txtDosyaYolu.Text),
-                    new SqlParameter("@p2", checkBoxGunlukLog.Checked) // SQL bit tipine bool otomatik çevrilir
+                    new SqlParameter("@p2", chkGunlukLog.Checked) // SQL bit tipine bool otomatik çevrilir
                 };
 
                 int sonuc = SqlYardimcisi.KomutCalistir(sorgu, p);
@@ -165,10 +192,10 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
 
                     string sorgu = "UPDATE Tbl_Ogretmenler SET Fotograf=@p1 WHERE OgretmenID=@p2";
 
-                    SqlParameter[] p = {
-                        new SqlParameter("@p1", resimBytes), // Resim verisi
-                        new SqlParameter("@p2", this.OgretmenID) // Hangi hoca?
-                    };
+                    SqlParameter pFoto = new SqlParameter("@p1", System.Data.SqlDbType.VarBinary, -1);
+                    pFoto.Value = resimBytes;
+                    SqlParameter pId = new SqlParameter("@p2", this.OgretmenID);
+                    SqlParameter[] p = { pFoto, pId };
 
                     int sonuc = SqlYardimcisi.KomutCalistir(sorgu, p);
 
@@ -176,6 +203,17 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
                     {
                         XtraMessageBox.Show("Profil fotoğrafı başarıyla yüklendi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         GunlukIslemLogla("PROFİL", "Kullanıcı fotoğrafını değiştirdi.");
+
+                        // Form1'deki fotoğrafı da güncelle - Application.OpenForms ile bul
+                        foreach (Form form in Application.OpenForms)
+                        {
+                            if (form is Form1 frm)
+                            {
+                                frm.OgretmenFoto = resimBytes;
+                                frm.GuncelleKullaniciBilgisi();
+                                break;
+                            }
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -252,7 +290,7 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
         public void GunlukIslemLogla(string islemTuru, string detay)
         {
             // Veritabanına sormadan, o anki UI durumuna göre karar veriyoruz (Hız için)
-            if (checkBoxGunlukLog.Checked == false) return;
+            if (chkGunlukLog.Checked == false) return;
             if (string.IsNullOrEmpty(txtDosyaYolu.Text)) return;
 
             try
@@ -279,33 +317,40 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
             }
         }
 
-        // --- API KEY (Örnek) ---
+        // --- API KEY KAYDETME ---
         private void simpleButton3_Click(object sender, EventArgs e)
         {
+            // API Key kontrolü
             if (string.IsNullOrEmpty(txtApiKey.Text))
             {
-                XtraMessageBox.Show("Lütfen geçerli bir API Key giriniz!", "Uyarı");
+                XtraMessageBox.Show("Lütfen API Key giriniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+            string selectedProvider = cmbApiProvider.SelectedItem?.ToString() ?? "Gemini";
+
             try
             {
-                string sorgu = "UPDATE Tbl_Ayarlar SET ApiKey=@p1 WHERE ID=1";
-                SqlParameter[] p = { new SqlParameter("@p1", txtApiKey.Text.Trim()) };
+                string sorgu = "UPDATE Tbl_Ayarlar SET ApiKey=@p1, ApiProvider=@p2 WHERE ID=1";
+                SqlParameter[] p = {
+                    new SqlParameter("@p1", txtApiKey.Text.Trim()),
+                    new SqlParameter("@p2", selectedProvider)
+                };
 
                 int sonuc = SqlYardimcisi.KomutCalistir(sorgu, p);
 
                 if (sonuc > 0)
                 {
-                    XtraMessageBox.Show("Yapay Zeka anahtarı güvenle kaydedildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    GunlukIslemLogla("AYAR", "Yapay zeka API anahtarı güncellendi.");
+                    XtraMessageBox.Show($"{selectedProvider} API anahtarı başarıyla kaydedildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    GunlukIslemLogla("AYAR", $"{selectedProvider} API anahtarı güncellendi.");
                 }
             }
             catch (Exception ex)
             {
-                XtraMessageBox.Show("API Key kaydedilemedi: " + ex.Message);
+                XtraMessageBox.Show("API Key kaydedilemedi: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            if (XtraMessageBox.Show("Ders programını şimdi test amaçlı oluşturmak ister misiniz?", "Test", MessageBoxButtons.YesNo) == DialogResult.Yes)
+
+            if (XtraMessageBox.Show("Ders programını şimdi oluşturmak ister misiniz?", "Ders Programı", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 // Async metodu UI thread'de çağırmak için basit yöntem:
                 System.Threading.Tasks.Task.Run(async () =>
@@ -313,12 +358,76 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
                     string sonuc = await Ozel_Ogrenci_Okul_Otomasyonu.DAL.YapayZekaServisi.DersProgramiOlustur();
 
                     // Sonucu UI'da göstermek için Invoke kullanmalıyız
-                    this.Invoke((MethodInvoker)delegate {
-                        // Sonucu göstermek için büyük bir mesaj kutusu veya yeni form açabilirsin
-                        XtraMessageBox.Show(sonuc, "Yapay Zeka Önerisi");
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        // Hata varsa göster
+                        if (sonuc.StartsWith("HATA") || sonuc.StartsWith("KRİTİK"))
+                        {
+                            XtraMessageBox.Show(sonuc, "Yapay Zeka Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
 
-                        // Logla
-                        GunlukIslemLogla("YAPAY ZEKA", "Ders programı taslağı oluşturuldu.");
+                        // Onay formunu aç
+                        FrmDersProgramiOnay onayForm = new FrmDersProgramiOnay(sonuc);
+                        DialogResult result = onayForm.ShowDialog();
+
+                        if (result == DialogResult.OK)
+                        {
+                            GunlukIslemLogla("YAPAY ZEKA", "Ders programı onaylandı ve kaydedildi.");
+                        }
+                        else
+                        {
+                            GunlukIslemLogla("YAPAY ZEKA", "Ders programı önerisi reddedildi.");
+                        }
+                    });
+                });
+            }
+        }
+
+        // --- API SAĞLAYICI DEĞİŞTİĞİNDE ---
+        private void cmbApiProvider_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Seçim değiştiğinde API key alanını temizle (kullanıcı yeni key girecek)
+            // Opsiyonel: txtApiKey.Text = "";
+        }
+
+        // --- DERS PROGRAMI OLUŞTUR BUTONU ---
+        private void btnDersProgramiEkle_Click(object sender, EventArgs e)
+        {
+            // API key kontrolü
+            if (string.IsNullOrEmpty(txtApiKey.Text))
+            {
+                XtraMessageBox.Show("Önce API Key'i girin ve kaydedin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Ders programı oluşturma dialogunu aç
+            FrmDersProgramiOlustur dialog = new FrmDersProgramiOlustur();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                // Seçilen verilerle programı oluştur
+                System.Threading.Tasks.Task.Run(async () =>
+                {
+                    string sonuc = await Ozel_Ogrenci_Okul_Otomasyonu.DAL.YapayZekaServisi.DersProgramiOlusturFiltreli(
+                        dialog.SecilenOgrenciler,
+                        dialog.SecilenOgretmenler,
+                        dialog.BaslangicTarihi,
+                        dialog.BitisTarihi
+                    );
+
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        if (sonuc.StartsWith("HATA") || sonuc.StartsWith("KRİTİK"))
+                        {
+                            XtraMessageBox.Show(sonuc, "Yapay Zeka Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        FrmDersProgramiOnay onayForm = new FrmDersProgramiOnay(sonuc);
+                        if (onayForm.ShowDialog() == DialogResult.OK)
+                        {
+                            GunlukIslemLogla("YAPAY ZEKA", "Ders programı onaylandı ve takvime eklendi.");
+                        }
                     });
                 });
             }
@@ -327,11 +436,14 @@ namespace Ozel_Ogrenci_Okul_Otomasyonu
         // --- CHECKBOX KONTROLÜ ---
         private void checkBox1_CheckedChanged(object sender, EventArgs e) // CheckBox Adını Designer'dan kontrol et: checkBoxGunlukLog
         {
+            // Yükleme sırasında uyarı verme
+            if (_isLoading) return;
+
             // Kullanıcı loglamayı açtı ama yol seçmediyse uyar
-            if (checkBoxGunlukLog.Checked && string.IsNullOrEmpty(txtDosyaYolu.Text))
+            if (chkGunlukLog.Checked && string.IsNullOrEmpty(txtDosyaYolu.Text))
             {
                 XtraMessageBox.Show("Lütfen önce bir dosya konumu seçiniz!", "Uyarı");
-                checkBoxGunlukLog.Checked = false;
+                chkGunlukLog.Checked = false;
             }
         }
 

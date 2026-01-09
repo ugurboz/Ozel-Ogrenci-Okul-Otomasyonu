@@ -2,15 +2,8 @@
 {
     partial class UcSeans
     {
-        /// <summary> 
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,14 +15,9 @@
 
         #region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UcSeans));
             this.lueOgrenci = new DevExpress.XtraEditors.LookUpEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.btnKaydet = new DevExpress.XtraEditors.SimpleButton();
@@ -38,15 +26,13 @@
             this.timeSaat = new DevExpress.XtraEditors.TimeEdit();
             this.dateTarih = new DevExpress.XtraEditors.DateEdit();
             this.lueOgretmen = new DevExpress.XtraEditors.LookUpEdit();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblSaat = new DevExpress.XtraEditors.LabelControl();
+            this.lblTarih = new DevExpress.XtraEditors.LabelControl();
+            this.lblOgretmen = new DevExpress.XtraEditors.LabelControl();
+            this.lblOgrenci = new DevExpress.XtraEditors.LabelControl();
             this.gridControlSeans = new DevExpress.XtraGrid.GridControl();
             this.gridViewSeans = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.cmsSeans = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.öğrenciGeldiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gelmediİptalToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+
             ((System.ComponentModel.ISupportInitialize)(this.lueOgrenci.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -56,170 +42,191 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueOgretmen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSeans)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewSeans)).BeginInit();
-            this.cmsSeans.SuspendLayout();
+
             this.SuspendLayout();
             // 
             // lueOgrenci
             // 
-            this.lueOgrenci.Location = new System.Drawing.Point(97, 68);
+            this.lueOgrenci.Location = new System.Drawing.Point(130, 55);
             this.lueOgrenci.Name = "lueOgrenci";
+            this.lueOgrenci.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lueOgrenci.Properties.Appearance.Options.UseFont = true;
             this.lueOgrenci.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueOgrenci.Size = new System.Drawing.Size(100, 20);
+            this.lueOgrenci.Properties.NullText = "Öğrenci Seçiniz...";
+            this.lueOgrenci.Size = new System.Drawing.Size(250, 24);
             this.lueOgrenci.TabIndex = 0;
             // 
             // groupControl1
             // 
+            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
+            this.groupControl1.AppearanceCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(142)))), ((int)(((byte)(60)))));
+            this.groupControl1.AppearanceCaption.Options.UseFont = true;
+            this.groupControl1.AppearanceCaption.Options.UseForeColor = true;
             this.groupControl1.Controls.Add(this.btnKaydet);
             this.groupControl1.Controls.Add(this.btnSil);
             this.groupControl1.Controls.Add(this.btnTemizle);
             this.groupControl1.Controls.Add(this.timeSaat);
             this.groupControl1.Controls.Add(this.dateTarih);
             this.groupControl1.Controls.Add(this.lueOgretmen);
-            this.groupControl1.Controls.Add(this.label4);
-            this.groupControl1.Controls.Add(this.label3);
-            this.groupControl1.Controls.Add(this.label2);
-            this.groupControl1.Controls.Add(this.label1);
+            this.groupControl1.Controls.Add(this.lblSaat);
+            this.groupControl1.Controls.Add(this.lblTarih);
+            this.groupControl1.Controls.Add(this.lblOgretmen);
+            this.groupControl1.Controls.Add(this.lblOgrenci);
             this.groupControl1.Controls.Add(this.lueOgrenci);
-            this.groupControl1.Location = new System.Drawing.Point(26, 39);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(361, 387);
+            this.groupControl1.Size = new System.Drawing.Size(420, 696);
             this.groupControl1.TabIndex = 1;
-            this.groupControl1.Text = "groupControl1";
+            this.groupControl1.Text = "🎯 Seans İşlemleri";
             // 
             // btnKaydet
             // 
-            this.btnKaydet.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKaydet.ImageOptions.Image")));
-            this.btnKaydet.Location = new System.Drawing.Point(17, 276);
+            this.btnKaydet.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(142)))), ((int)(((byte)(60)))));
+            this.btnKaydet.Appearance.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnKaydet.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnKaydet.Appearance.Options.UseBackColor = true;
+            this.btnKaydet.Appearance.Options.UseFont = true;
+            this.btnKaydet.Appearance.Options.UseForeColor = true;
+            this.btnKaydet.Location = new System.Drawing.Point(20, 280);
             this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(97, 54);
+            this.btnKaydet.Size = new System.Drawing.Size(120, 50);
             this.btnKaydet.TabIndex = 15;
-            this.btnKaydet.Text = "KAYDET";
+            this.btnKaydet.Text = "💾 KAYDET";
             this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // btnSil
             // 
-            this.btnSil.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSil.ImageOptions.Image")));
-            this.btnSil.Location = new System.Drawing.Point(139, 276);
+            this.btnSil.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
+            this.btnSil.Appearance.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnSil.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnSil.Appearance.Options.UseBackColor = true;
+            this.btnSil.Appearance.Options.UseFont = true;
+            this.btnSil.Appearance.Options.UseForeColor = true;
+            this.btnSil.Location = new System.Drawing.Point(150, 280);
             this.btnSil.Name = "btnSil";
-            this.btnSil.Size = new System.Drawing.Size(85, 54);
+            this.btnSil.Size = new System.Drawing.Size(120, 50);
             this.btnSil.TabIndex = 14;
-            this.btnSil.Text = "SIL";
+            this.btnSil.Text = "🗑️ SİL";
             this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnTemizle
             // 
-            this.btnTemizle.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTemizle.ImageOptions.Image")));
-            this.btnTemizle.Location = new System.Drawing.Point(249, 276);
+            this.btnTemizle.Appearance.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnTemizle.Appearance.Options.UseFont = true;
+            this.btnTemizle.Location = new System.Drawing.Point(280, 280);
             this.btnTemizle.Name = "btnTemizle";
-            this.btnTemizle.Size = new System.Drawing.Size(91, 54);
+            this.btnTemizle.Size = new System.Drawing.Size(120, 50);
             this.btnTemizle.TabIndex = 13;
-            this.btnTemizle.Text = "TEMIZLE";
+            this.btnTemizle.Text = "🔄 TEMİZLE";
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
             // 
             // timeSaat
             // 
-            this.timeSaat.EditValue = new System.DateTime(2025, 12, 19, 0, 0, 0, 0);
-            this.timeSaat.Location = new System.Drawing.Point(97, 210);
+            this.timeSaat.EditValue = new System.DateTime(2025, 12, 19, 9, 0, 0, 0);
+            this.timeSaat.Location = new System.Drawing.Point(130, 205);
             this.timeSaat.Name = "timeSaat";
+            this.timeSaat.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.timeSaat.Properties.Appearance.Options.UseFont = true;
             this.timeSaat.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeSaat.Size = new System.Drawing.Size(100, 20);
+            this.timeSaat.Size = new System.Drawing.Size(150, 24);
             this.timeSaat.TabIndex = 7;
             // 
             // dateTarih
             // 
             this.dateTarih.EditValue = null;
-            this.dateTarih.Location = new System.Drawing.Point(97, 161);
+            this.dateTarih.Location = new System.Drawing.Point(130, 155);
             this.dateTarih.Name = "dateTarih";
+            this.dateTarih.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dateTarih.Properties.Appearance.Options.UseFont = true;
             this.dateTarih.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateTarih.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateTarih.Size = new System.Drawing.Size(100, 20);
+            this.dateTarih.Size = new System.Drawing.Size(180, 24);
             this.dateTarih.TabIndex = 6;
             // 
             // lueOgretmen
             // 
-            this.lueOgretmen.Location = new System.Drawing.Point(97, 118);
+            this.lueOgretmen.Location = new System.Drawing.Point(130, 105);
             this.lueOgretmen.Name = "lueOgretmen";
+            this.lueOgretmen.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lueOgretmen.Properties.Appearance.Options.UseFont = true;
             this.lueOgretmen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lueOgretmen.Size = new System.Drawing.Size(100, 20);
+            this.lueOgretmen.Properties.NullText = "Öğretmen Seçiniz...";
+            this.lueOgretmen.Size = new System.Drawing.Size(250, 24);
             this.lueOgretmen.TabIndex = 5;
             // 
-            // label4
+            // lblSaat
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 213);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Saat :";
+            this.lblSaat.Appearance.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblSaat.Appearance.Options.UseFont = true;
+            this.lblSaat.Location = new System.Drawing.Point(20, 208);
+            this.lblSaat.Name = "lblSaat";
+            this.lblSaat.Size = new System.Drawing.Size(33, 20);
+            this.lblSaat.TabIndex = 4;
+            this.lblSaat.Text = "Saat :";
             // 
-            // label3
+            // lblTarih
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 164);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Tarih :";
+            this.lblTarih.Appearance.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblTarih.Appearance.Options.UseFont = true;
+            this.lblTarih.Location = new System.Drawing.Point(20, 158);
+            this.lblTarih.Name = "lblTarih";
+            this.lblTarih.Size = new System.Drawing.Size(36, 20);
+            this.lblTarih.TabIndex = 3;
+            this.lblTarih.Text = "Tarih :";
             // 
-            // label2
+            // lblOgretmen
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 121);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Ogretmen :";
+            this.lblOgretmen.Appearance.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblOgretmen.Appearance.Options.UseFont = true;
+            this.lblOgretmen.Location = new System.Drawing.Point(20, 108);
+            this.lblOgretmen.Name = "lblOgretmen";
+            this.lblOgretmen.Size = new System.Drawing.Size(68, 20);
+            this.lblOgretmen.TabIndex = 2;
+            this.lblOgretmen.Text = "Öğretmen :";
             // 
-            // label1
+            // lblOgrenci
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 71);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Ogrenci :";
+            this.lblOgrenci.Appearance.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lblOgrenci.Appearance.Options.UseFont = true;
+            this.lblOgrenci.Location = new System.Drawing.Point(20, 58);
+            this.lblOgrenci.Name = "lblOgrenci";
+            this.lblOgrenci.Size = new System.Drawing.Size(55, 20);
+            this.lblOgrenci.TabIndex = 1;
+            this.lblOgrenci.Text = "Öğrenci :";
             // 
             // gridControlSeans
             // 
-            this.gridControlSeans.Location = new System.Drawing.Point(585, 0);
+            this.gridControlSeans.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlSeans.Location = new System.Drawing.Point(420, 0);
             this.gridControlSeans.MainView = this.gridViewSeans;
             this.gridControlSeans.Name = "gridControlSeans";
-            this.gridControlSeans.Size = new System.Drawing.Size(792, 676);
+            this.gridControlSeans.Size = new System.Drawing.Size(1092, 696);
             this.gridControlSeans.TabIndex = 2;
             this.gridControlSeans.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewSeans});
             // 
             // gridViewSeans
             // 
+            this.gridViewSeans.Appearance.HeaderPanel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.gridViewSeans.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridViewSeans.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(142)))), ((int)(((byte)(60)))));
+            this.gridViewSeans.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.White;
+            this.gridViewSeans.Appearance.HeaderPanel.Options.UseBackColor = true;
+            this.gridViewSeans.Appearance.HeaderPanel.Options.UseForeColor = true;
+            this.gridViewSeans.Appearance.Row.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gridViewSeans.Appearance.Row.Options.UseFont = true;
             this.gridViewSeans.GridControl = this.gridControlSeans;
             this.gridViewSeans.Name = "gridViewSeans";
+            this.gridViewSeans.OptionsView.RowAutoHeight = true;
+            this.gridViewSeans.OptionsView.ShowGroupPanel = false;
+            this.gridViewSeans.RowHeight = 35;
             this.gridViewSeans.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridViewSeans_RowStyle);
-            // 
-            // cmsSeans
-            // 
-            this.cmsSeans.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.öğrenciGeldiToolStripMenuItem,
-            this.gelmediİptalToolStripMenuItem1});
-            this.cmsSeans.Name = "cmsSeans";
-            this.cmsSeans.Size = new System.Drawing.Size(168, 48);
-            // 
-            // öğrenciGeldiToolStripMenuItem
-            // 
-            this.öğrenciGeldiToolStripMenuItem.Name = "öğrenciGeldiToolStripMenuItem";
-            this.öğrenciGeldiToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.öğrenciGeldiToolStripMenuItem.Text = "🟢 Öğrenci Geldi";
-            this.öğrenciGeldiToolStripMenuItem.Click += new System.EventHandler(this.öğrenciGeldiToolStripMenuItem_Click);
-            // 
-            // gelmediİptalToolStripMenuItem1
-            // 
-            this.gelmediİptalToolStripMenuItem1.Name = "gelmediİptalToolStripMenuItem1";
-            this.gelmediİptalToolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
-            this.gelmediİptalToolStripMenuItem1.Text = "🔴 Gelmedi / İptal";
-            this.gelmediİptalToolStripMenuItem1.Click += new System.EventHandler(this.gelmediİptalToolStripMenuItem1_Click);
+            this.gridViewSeans.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewSeans_FocusedRowChanged);
+
             // 
             // UcSeans
             // 
@@ -228,7 +235,7 @@
             this.Controls.Add(this.gridControlSeans);
             this.Controls.Add(this.groupControl1);
             this.Name = "UcSeans";
-            this.Size = new System.Drawing.Size(1447, 679);
+            this.Size = new System.Drawing.Size(1512, 696);
             this.Load += new System.EventHandler(this.UcSeans_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lueOgrenci.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
@@ -240,9 +247,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.lueOgretmen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlSeans)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewSeans)).EndInit();
-            this.cmsSeans.ResumeLayout(false);
-            this.ResumeLayout(false);
 
+            this.ResumeLayout(false);
         }
 
         #endregion
@@ -251,18 +257,16 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraGrid.GridControl gridControlSeans;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewSeans;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private DevExpress.XtraEditors.LabelControl lblSaat;
+        private DevExpress.XtraEditors.LabelControl lblTarih;
+        private DevExpress.XtraEditors.LabelControl lblOgretmen;
+        private DevExpress.XtraEditors.LabelControl lblOgrenci;
         private DevExpress.XtraEditors.TimeEdit timeSaat;
         private DevExpress.XtraEditors.DateEdit dateTarih;
         private DevExpress.XtraEditors.LookUpEdit lueOgretmen;
         private DevExpress.XtraEditors.SimpleButton btnKaydet;
         private DevExpress.XtraEditors.SimpleButton btnSil;
         private DevExpress.XtraEditors.SimpleButton btnTemizle;
-        private System.Windows.Forms.ContextMenuStrip cmsSeans;
-        private System.Windows.Forms.ToolStripMenuItem öğrenciGeldiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gelmediİptalToolStripMenuItem1;
+
     }
 }
